@@ -1,0 +1,48 @@
+*** svc logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:53:07 ***
+
+
+*** Subtest "Split": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/scalable/svc.264:svcmode=split -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-split.mp4" ***
+[32mAVC-H264 import - frame size 176 x 144 at 25.000 FPS
+[0m[32mSVC Detected - SSPS ID 0 - frame size 352 x 288
+[0m[32mSVC Detected - SSPS ID 1 - frame size 704 x 576
+[0m[32mAVC Import results: 500 samples (2070 NALUs) - Slices: 20 I 60 P 420 B - 9 SEI - 10 IDR
+[0m[32mSVC (SSPS ID 0) Import results: Slices: 20 I 60 P 420 B
+[0m[32mSVC (SSPS ID 1) Import results: Slices: 20 I 60 P 420 B
+[0m[32mStream uses forward prediction - stream CTS offset: 3 frames
+[0mSaving /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-split.mp4: 0.500 secs Interleaving
+
+
+*** Subtest "Merge": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-split.mp4:svcmode=merge -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-merge.mp4" ***
+[32mIsoMedia import svc-split.mp4 - track ID 1 - Video (size 176 x 144)
+[0m[32mIsoMedia import svc-split.mp4 - track ID 2 - Video (size 352 x 288)
+[0m[32mIsoMedia import svc-split.mp4 - track ID 3 - Video (size 704 x 576)
+[0mSaving /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-merge.mp4: 0.500 secs Interleaving
+
+Same Hash for /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc.mp4 and /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-merge.mp4
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-split.mp4 -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-split.mp4
+Service Connected
+[31m[Codec] ODM1 ES3: Cannot find decoder for stream type MPEG-4 SVC Video
+[0m
+
+*** Subtest "dash": executing "MP4Box -noprog -for-test  -mem-track -dash 1000 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-split.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc.mpd" ***
+
+
+*** Subtest "dash-playback": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc-dash-playback-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc.mpd -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/svc.mpd
+[33m[DASH] Different codec types (avc3.4d600b vs svc1.564015) in same AdaptationSet
+[0m[33m[DASH] Different codec types (avc3.4d600b vs svc1.56401f) in same AdaptationSet
+[0mService Connected
+[31m[Codec] ODM1 ES3: Cannot find decoder for stream type MPEG-4 SVC Video
+[0m

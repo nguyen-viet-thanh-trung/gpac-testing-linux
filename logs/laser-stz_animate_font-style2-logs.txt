@@ -1,0 +1,47 @@
+*** laser-stz_animate_font-style2 logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:44:13 ***
+
+
+*** Subtest "LSR2MP4": executing "MP4Box -noprog -for-test  -mem-track  -mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.xml" ***
+[32m[Parser] LASeR Scene Parsing: /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.xml
+[0m[32m[Parser] Scene parsed and Scene Graph built in 0 ms
+[0mSaving to /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.mp4: 0.500 secs Interleaving
+
+
+*** Subtest "LSR2SAF": executing "MP4Box -noprog -for-test  -mem-track  -saf /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.xml" ***
+[32m[Parser] LASeR Scene Parsing: /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.xml
+[0m[32m[Parser] Scene parsed and Scene Graph built in 0 ms
+[0m[33mSAF: Multiplexing 1 tracks
+[0m
+
+*** Subtest "MP42LSR": executing "MP4Box -noprog -for-test  -mem-track -lsr /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.mp4 -out test1.lsr" ***
+[32mMPEG-4 LASeR Scene Parsing
+[0mScene loaded - dumping 1 systems streams
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/laser-stz_animate_font-style2-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.saf -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.saf
+Service Connected
+[33m[FreeType] Font 'Arial' (Arial) not found
+[0m[33m[FreeType] Font 'Arial' (Arial) not found
+[0m[33m[FreeType] Font 'Arial' (Arial) not found
+[0m[33m[FreeType] Font 'Arial' (Arial) not found
+[0m[33m[FreeType] Font 'Arial' (Arial) not found
+[0m[33m[FreeType] Font 'Arial' (Arial) not found
+[0m[33m[FreeType] Font 'Arial' (Arial) not found
+[0m[33m[FreeType] Font 'Arial' (Arial) not found
+[0mDumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 82 ms) - ran for 2137 ms
+GPAC cleanup ...
+
+
+*** Subtest "SAF2LSR": executing "MP4Box -noprog -for-test  -mem-track -lsr /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/stz_animate_font-style2.saf -out test2.lsr" ***
+[32mImporting SAF stream 1: LASeR Scene
+[0m[32mMPEG-4 LASeR Scene Parsing
+[0mScene loaded - dumping 1 systems streams
+

@@ -1,0 +1,27 @@
+*** dash logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:42:47 ***
+
+
+*** Subtest "dash-input-preparation": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/enst_video.h264 -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/enst_audio.aac -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/file.mp4" ***
+[32m[avc-h264] Possible Variable Frame Rate: VUI "fixed_frame_rate_flag" absent.
+[0m[32mAVC-H264 import - frame size 128 x 128 at 25.000 FPS
+[0m[32mAVC Import results: 173 samples (178 NALUs) - Slices: 2 I 96 P 75 B - 0 SEI - 2 IDR
+[0m[32mAAC ADTS import  - sample rate 48000 - MPEG-4 audio - 2 channels
+[0mSaving /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/file.mp4: 0.500 secs Interleaving
+
+
+*** Subtest "basic-dash": executing "MP4Box -noprog -for-test  -mem-track -dash 1000 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/file.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/file.mpd" ***
+
+
+*** Subtest "basic-dash-playback": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/dash-basic-dash-playback-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/file.mpd -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/file.mpd
+Service Connected
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 67 ms) - ran for 2379 ms
+GPAC cleanup ...
+

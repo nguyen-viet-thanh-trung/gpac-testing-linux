@@ -1,0 +1,39 @@
+*** vtt-counter logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:53:17 ***
+
+
+*** Subtest "vtt-to-mp4": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/webvtt/counter.vtt -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4" ***
+[32mWebVTT import
+[0mSaving /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4: 0.500 secs Interleaving
+
+
+*** Subtest "vtt-info": executing "MP4Box -noprog -for-test  -mem-track -info 1 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4" ***
+Track # 1 Info - TrackID 1 - TimeScale 1000
+Media Duration 00:01:00.000 - Indicated Duration 00:01:00.000
+Media Info: Language "Undetermined (und)" - Type "text:wvtt" - 1500 samples
+Handler name: MediaHandler
+Unknown Text Stream
+ Size 400 x 60 - Translation X=0 Y=0 - Layer 0
+	RFC6381 Codec Parameters: wvtt
+	All samples are sync
+
+Computed info from media:
+	Total size 49890 bytes - Total samples duration 59960 ms
+	Average rate 6 kbps - Max Rate 7 kbps
+	Chunk durations: min 440 ms - max 520 ms - average 480 ms
+	Chunk sizes (bytes): min 374 - max 408 - average 399
+
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/vtt-counter-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4 -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4
+Service Connected
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 77 ms) - ran for 2098 ms
+GPAC cleanup ...
+

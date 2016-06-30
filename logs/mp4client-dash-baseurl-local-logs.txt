@@ -1,0 +1,20 @@
+*** mp4client-dash-baseurl-local logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:51:38 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-dash-baseurl-local-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/dash/base_url_switch/src_baseurl.mpd -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/dash/base_url_switch/src_baseurl.mpd
+Service Connected
+ Return Value 139 - re-executing without GNU TIME
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/dash/base_url_switch/src_baseurl.mpd
+Service Connected
+

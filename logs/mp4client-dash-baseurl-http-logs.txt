@@ -1,0 +1,738 @@
+*** mp4client-dash-baseurl-http logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:51:25 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-dash-baseurl-http-dump -size 200x200 http://download.tsi.telecom-paristech.fr/gpac/gpac_test_suite/resources/media/dash/base_url_switch/src_baseurl.mpd -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 5 ms
+Opening URL http://download.tsi.telecom-paristech.fr/gpac/gpac_test_suite/resources/media/dash/base_url_switch/src_baseurl.mpd
+[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dashinit.mp4 was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dashinit.mp4
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:26 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 385
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dashinit.mp4 = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dashinit.mp4 was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dashinit.mp4
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:26 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 378
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dashinit.mp4 = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dashinit.mp4 was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dashinit.mp4
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:26 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 385
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dashinit.mp4 = Requested URL is not valid or cannot be found...
+[0mService Connected
+[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash1.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash1.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:27 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash1.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:27 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Error in downloading new segment: http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s Requested URL is not valid or cannot be found - starting countdown for 1000 ms
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:28 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:28 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 375
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:28 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Recovered segment http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash2.m4s after 404 by switching baseURL
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:29 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Error in downloading new segment: http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s Requested URL is not valid or cannot be found - starting countdown for 1000 ms
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:29 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:30 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 375
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:30 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:30 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 375
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_c/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_c/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:30 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_c/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Recovered segment http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_c/src_dash3.m4s after 404 by switching baseURL
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:31 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Error in downloading new segment: http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s Requested URL is not valid or cannot be found - starting countdown for 1000 ms
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:31 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s = Requested URL is not valid or cannot be found...
+[0mDumping done: 250 frames at 25 FPS
+[33m[CACHE] entry is null at utils/cache.c:571
+[0m Return Value 139 - re-executing without GNU TIME
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL http://download.tsi.telecom-paristech.fr/gpac/gpac_test_suite/resources/media/dash/base_url_switch/src_baseurl.mpd
+[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dashinit.mp4 was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dashinit.mp4
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:32 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 385
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dashinit.mp4 = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dashinit.mp4 was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dashinit.mp4
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:32 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 378
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dashinit.mp4 = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dashinit.mp4 was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dashinit.mp4
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:33 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 385
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dashinit.mp4 = Requested URL is not valid or cannot be found...
+[0mService Connected
+[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash1.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash1.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:33 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash1.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:34 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Error in downloading new segment: http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s Requested URL is not valid or cannot be found - starting countdown for 1000 ms
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:34 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:35 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 375
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash2.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash2.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:35 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash2.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Recovered segment http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash2.m4s after 404 by switching baseURL
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:35 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Error in downloading new segment: http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s Requested URL is not valid or cannot be found - starting countdown for 1000 ms
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:36 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:36 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 375
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_a/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:36 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_b/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:37 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 375
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_b/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_c/src_dash3.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_c/src_dash3.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:37 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_c/src_dash3.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Recovered segment http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/base_c/src_dash3.m4s after 404 by switching baseURL
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:37 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s = Requested URL is not valid or cannot be found...
+[0m[33m[DASH] Error in downloading new segment: http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s Requested URL is not valid or cannot be found - starting countdown for 1000 ms
+[0m[33m[HTTP] Failure: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s was not found on this server.</p>
+<hr>
+<address>Apache/2.2.22 (Debian) Server at download.tsi.telecom-paristech.fr Port 80</address>
+</body></html>
+
+[0m[33m[HTTP] Error parsing reply: Requested URL is not valid or cannot be found for URL http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s
+Reply was:
+HTTP/1.1 404 Not Found
+Date: Thu, 30 Jun 2016 11:51:38 GMT
+Server: Apache/2.2.22 (Debian)
+Vary: Accept-Encoding
+Content-Length: 382
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=iso-8859-1
+
+[0m[33m[DASH] FAILED to download http://download.tsi.telecom-paristech.fr:80/gpac/gpac_test_suite/resources/media/dash/base_url_switch/broken/base_a/src_dash4.m4s = Requested URL is not valid or cannot be found...
+[0mDumping done: 250 frames at 25 FPS
+[31m[CACHE] Failed to flush/close file on disk
+[0m

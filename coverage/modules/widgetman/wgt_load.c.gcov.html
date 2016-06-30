@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - modules/widgetman/wgt_load.c</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">modules/widgetman</a> - wgt_load.c<span style="font-size: 80%;"> (source / <a href="wgt_load.c.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntry">136</td>
+            <td class="headerCovTableEntryLo">22.1 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2016-06-30</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryLo">27.3 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryLo">20.8 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : //This software module was originally developed by TelecomParisTech in the</a>
+<span class="lineNum">       2 </span>                :            : //course of the development of MPEG-U Widgets (ISO/IEC 23007-1) standard.
+<span class="lineNum">       3 </span>                :            : //
+<span class="lineNum">       4 </span>                :            : //This software module is an implementation of a part of one or
+<span class="lineNum">       5 </span>                :            : //more MPEG-U Widgets (ISO/IEC 23007-1) tools as specified by the MPEG-U Widgets
+<span class="lineNum">       6 </span>                :            : //(ISO/IEC 23007-1) standard. ISO/IEC gives users of the MPEG-U Widgets
+<span class="lineNum">       7 </span>                :            : //(ISO/IEC 23007-1) free license to this software module or modifications
+<span class="lineNum">       8 </span>                :            : //thereof for use in hardware or software products claiming conformance to
+<span class="lineNum">       9 </span>                :            : //the MPEG-U Widgets (ISO/IEC 23007-1). Those intending to use this software
+<span class="lineNum">      10 </span>                :            : //module in hardware or software products are advised that its use may
+<span class="lineNum">      11 </span>                :            : //infringe existing patents.
+<span class="lineNum">      12 </span>                :            : //The original developer of this software module and his/her company, the
+<span class="lineNum">      13 </span>                :            : //subsequent editors and their companies, and ISO/IEC have no liability
+<span class="lineNum">      14 </span>                :            : //for use of this software module or modifications thereof in an implementation.
+<span class="lineNum">      15 </span>                :            : //Copyright is not released for non MPEG-U Widgets (ISO/IEC 23007-1) conforming
+<span class="lineNum">      16 </span>                :            : //products.
+<span class="lineNum">      17 </span>                :            : //Telecom ParisTech retains full right to use the code for his/her own purpose,
+<span class="lineNum">      18 </span>                :            : //assign or donate the code to a third party and to inhibit third parties from
+<span class="lineNum">      19 </span>                :            : //using the code for non MPEG-U Widgets (ISO/IEC 23007-1) conforming products.
+<span class="lineNum">      20 </span>                :            : //
+<span class="lineNum">      21 </span>                :            : //This copyright notice must be included in all copies or derivative works.
+<span class="lineNum">      22 </span>                :            : //
+<span class="lineNum">      23 </span>                :            : //Copyright (c) 2009 Telecom ParisTech.
+<span class="lineNum">      24 </span>                :            : //
+<span class="lineNum">      25 </span>                :            : // Alternatively, this software module may be redistributed and/or modified
+<span class="lineNum">      26 </span>                :            : //  it under the terms of the GNU Lesser General Public License as published by
+<span class="lineNum">      27 </span>                :            : //  the Free Software Foundation; either version 2, or (at your option)
+<span class="lineNum">      28 </span>                :            : //  any later version.
+<span class="lineNum">      29 </span>                :            : //
+<span class="lineNum">      30 </span>                :            : /////////////////////////////////////////////////////////////////////////////////
+<span class="lineNum">      31 </span>                :            : 
+<span class="lineNum">      32 </span>                :            : /////////////////////////////////////////////////////////////////////////////////
+<span class="lineNum">      33 </span>                :            : //
+<span class="lineNum">      34 </span>                :            : //      Authors:
+<span class="lineNum">      35 </span>                :            : //                                      Cyril Concolato, Telecom ParisTech
+<span class="lineNum">      36 </span>                :            : //                                      Jean Le Feuvre, Telecom ParisTech
+<span class="lineNum">      37 </span>                :            : //
+<span class="lineNum">      38 </span>                :            : /////////////////////////////////////////////////////////////////////////////////
+<span class="lineNum">      39 </span>                :            : 
+<span class="lineNum">      40 </span>                :            : 
+<span class="lineNum">      41 </span>                :            : #include &lt;gpac/internal/terminal_dev.h&gt;
+<span class="lineNum">      42 </span>                :            : #include &lt;gpac/internal/scenegraph_dev.h&gt;
+<span class="lineNum">      43 </span>                :            : #include &lt;gpac/nodes_svg.h&gt;
+<span class="lineNum">      44 </span>                :            : #include &lt;gpac/constants.h&gt;
+<span class="lineNum">      45 </span>                :            : 
+<span class="lineNum">      46 </span>                :            : #if defined(GPAC_HAS_SPIDERMONKEY) &amp;&amp; !defined(GPAC_DISABLE_SVG)
+<span class="lineNum">      47 </span>                :            : 
+<span class="lineNum">      48 </span>                :            : typedef struct
+<span class="lineNum">      49 </span>                :            : {
+<span class="lineNum">      50 </span>                :            :         GF_Scene *scene;
+<span class="lineNum">      51 </span>                :            :         u8 oti;
+<span class="lineNum">      52 </span>                :            :         char *file_name;
+<span class="lineNum">      53 </span>                :            :         u32 file_size;
+<span class="lineNum">      54 </span>                :            :         Bool loaded;
+<a name="55"><span class="lineNum">      55 </span>                :            : } WgtLoad;</a>
+<span class="lineNum">      56 </span>                :            : 
+<span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 : static GF_Err WGT_ProcessData(GF_SceneDecoder *plug, const char *inBuffer, u32 inBufferLength,</span>
+<span class="lineNum">      58 </span>                :            :                               u16 ES_ID, u32 stream_time, u32 mmlevel)
+<span class="lineNum">      59 </span>                :            : {
+<span class="lineNum">      60 </span>                :            :         GF_Err e = GF_OK;
+<span class="lineNum">      61 </span>                :<span class="lineNoCov">          0 :         WgtLoad *wgtload = (WgtLoad *)plug-&gt;privateStack;</span>
+<span class="lineNum">      62 </span>                :            : 
+<span class="lineNum">      63 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (stream_time==(u32)-1) {</span>
+<span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :                 gf_sg_reset(wgtload-&gt;scene-&gt;graph);</span>
+<span class="lineNum">      65 </span>                :<span class="lineNoCov">          0 :                 return GF_OK;</span>
+<span class="lineNum">      66 </span>                :            :         }
+<span class="lineNum">      67 </span>                :            : 
+<span class="lineNum">      68 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         switch (wgtload-&gt;oti) {</span>
+<span class="lineNum">      69 </span>                :            :         case GPAC_OTI_PRIVATE_SCENE_WGT:
+<span class="lineNum">      70 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (wgtload-&gt;file_name &amp;&amp; !wgtload-&gt;loaded) {</span>
+<span class="lineNum">      71 </span>                :            :                         const char *path, *wmpath;
+<span class="lineNum">      72 </span>                :            :                         char *tmp;
+<span class="lineNum">      73 </span>                :            :                         GF_Node *n, *root;
+<span class="lineNum">      74 </span>                :            :                         GF_FieldInfo info;
+<span class="lineNum">      75 </span>                :            :                         FILE *jsfile;
+<span class="lineNum">      76 </span>                :            :                         GF_ChildNodeItem *last;
+<span class="lineNum">      77 </span>                :            : 
+<span class="lineNum">      78 </span>                :<span class="lineNoCov">          0 :                         wgtload-&gt;loaded = GF_TRUE;</span>
+<span class="lineNum">      79 </span>                :            : 
+<span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 :                         gf_sg_add_namespace(wgtload-&gt;scene-&gt;graph, &quot;http://www.w3.org/2000/svg&quot;, NULL);</span>
+<span class="lineNum">      81 </span>                :<span class="lineNoCov">          0 :                         gf_sg_add_namespace(wgtload-&gt;scene-&gt;graph, &quot;http://www.w3.org/1999/xlink&quot;, &quot;xlink&quot;);</span>
+<span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 :                         gf_sg_add_namespace(wgtload-&gt;scene-&gt;graph, &quot;http://www.w3.org/2001/xml-events&quot;, &quot;ev&quot;);</span>
+<span class="lineNum">      83 </span>                :<span class="lineNoCov">          0 :                         gf_sg_set_scene_size_info(wgtload-&gt;scene-&gt;graph, 800, 600, GF_TRUE);</span>
+<span class="lineNum">      84 </span>                :            : 
+<span class="lineNum">      85 </span>                :            :                         /* modify the scene with an Inline/Animation pointing to the widget start file URL */
+<span class="lineNum">      86 </span>                :<span class="lineNoCov">          0 :                         n = root = gf_node_new(wgtload-&gt;scene-&gt;graph, TAG_SVG_svg);</span>
+<span class="lineNum">      87 </span>                :<span class="lineNoCov">          0 :                         gf_node_register(root, NULL);</span>
+<span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 :                         gf_sg_set_root_node(wgtload-&gt;scene-&gt;graph, root);</span>
+<span class="lineNum">      89 </span>                :<span class="lineNoCov">          0 :                         gf_node_get_attribute_by_tag(n, TAG_SVG_ATT_viewBox, GF_TRUE, GF_FALSE, &amp;info);</span>
+<span class="lineNum">      90 </span>                :<span class="lineNoCov">          0 :                         gf_svg_parse_attribute(n, &amp;info, &quot;0 0 320 240&quot;, 0);</span>
+<span class="lineNum">      91 </span>                :<span class="lineNoCov">          0 :                         gf_node_get_attribute_by_name(n, &quot;xmlns&quot;, 0, GF_TRUE, GF_FALSE, &amp;info);</span>
+<span class="lineNum">      92 </span>                :<span class="lineNoCov">          0 :                         gf_svg_parse_attribute(n, &amp;info, &quot;http://www.w3.org/2000/svg&quot;, 0);</span>
+<span class="lineNum">      93 </span>                :            :                         /*
+<span class="lineNum">      94 </span>                :            :                                                 gf_sg_set_scene_size_info(wgtload-&gt;scene-&gt;graph, 800, 600, 1);
+<span class="lineNum">      95 </span>                :            :                                                 gf_node_get_attribute_by_tag(n, TAG_SVG_ATT_width, 1, 0, &amp;info);
+<span class="lineNum">      96 </span>                :            :                                                 gf_svg_parse_attribute(n, &amp;info, &quot;800&quot;, 0);
+<span class="lineNum">      97 </span>                :            :                                                 gf_node_get_attribute_by_tag(n, TAG_SVG_ATT_height, 1, 0, &amp;info);
+<span class="lineNum">      98 </span>                :            :                                                 gf_svg_parse_attribute(n, &amp;info, &quot;600&quot;, 0);
+<span class="lineNum">      99 </span>                :            :                         */
+<span class="lineNum">     100 </span>                :<span class="lineNoCov">          0 :                         gf_node_init(n);</span>
+<span class="lineNum">     101 </span>                :            : 
+<span class="lineNum">     102 </span>                :<span class="lineNoCov">          0 :                         n = gf_node_new(wgtload-&gt;scene-&gt;graph, TAG_SVG_animation);</span>
+<span class="lineNum">     103 </span>                :<span class="lineNoCov">          0 :                         gf_node_set_id(n, 1, &quot;w_anim&quot;);</span>
+<span class="lineNum">     104 </span>                :<span class="lineNoCov">          0 :                         gf_node_register(n, root);</span>
+<span class="lineNum">     105 </span>                :<span class="lineNoCov">          0 :                         gf_node_list_add_child_last(&amp;((GF_ParentNode *)root)-&gt;children, n, &amp;last);</span>
+<span class="lineNum">     106 </span>                :<span class="lineNoCov">          0 :                         gf_node_get_attribute_by_tag(n, TAG_SVG_ATT_width, GF_TRUE, GF_FALSE, &amp;info);</span>
+<span class="lineNum">     107 </span>                :<span class="lineNoCov">          0 :                         gf_svg_parse_attribute(n, &amp;info, &quot;320&quot;, 0);</span>
+<span class="lineNum">     108 </span>                :<span class="lineNoCov">          0 :                         gf_node_get_attribute_by_tag(n, TAG_SVG_ATT_height, GF_TRUE, GF_FALSE, &amp;info);</span>
+<span class="lineNum">     109 </span>                :<span class="lineNoCov">          0 :                         gf_svg_parse_attribute(n, &amp;info, &quot;240&quot;, 0);</span>
+<span class="lineNum">     110 </span>                :<span class="lineNoCov">          0 :                         gf_node_init(n);</span>
+<span class="lineNum">     111 </span>                :            : 
+<span class="lineNum">     112 </span>                :<span class="lineNoCov">          0 :                         tmp = wgtload-&gt;file_name;</span>
+<span class="lineNum">     113 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         while ((tmp = strchr(tmp, '\\'))) {</span>
+<span class="lineNum">     114 </span>                :<span class="lineNoCov">          0 :                                 tmp[0] = '/';</span>
+<span class="lineNum">     115 </span>                :<span class="lineNoCov">          0 :                                 tmp++;</span>
+<span class="lineNum">     116 </span>                :            :                         }
+<span class="lineNum">     117 </span>                :            : 
+<span class="lineNum">     118 </span>                :<span class="lineNoCov">          0 :                         n = gf_node_new(wgtload-&gt;scene-&gt;graph, TAG_SVG_script);</span>
+<span class="lineNum">     119 </span>                :<span class="lineNoCov">          0 :                         gf_node_register(n, root);</span>
+<span class="lineNum">     120 </span>                :<span class="lineNoCov">          0 :                         gf_node_list_add_child_last(&amp;((GF_ParentNode *)root)-&gt;children, n, &amp;last);</span>
+<span class="lineNum">     121 </span>                :<span class="lineNoCov">          0 :                         path = gf_modules_get_option((GF_BaseInterface *)plug, &quot;Widgets&quot;, &quot;WidgetLoadScript&quot;);</span>
+<span class="lineNum">     122 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         jsfile = path ? gf_fopen(path, &quot;rt&quot;) : NULL;</span>
+<span class="lineNum">     123 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (jsfile) {</span>
+<span class="lineNum">     124 </span>                :<span class="lineNoCov">          0 :                                 gf_fclose(jsfile);</span>
+<span class="lineNum">     125 </span>                :<span class="lineNoCov">          0 :                                 gf_node_get_attribute_by_tag(n, TAG_XLINK_ATT_href, GF_TRUE, GF_FALSE, &amp;info);</span>
+<span class="lineNum">     126 </span>                :<span class="lineNoCov">          0 :                                 gf_svg_parse_attribute(n, &amp;info, (char *) path, 0);</span>
+<span class="lineNum">     127 </span>                :            :                         } else {
+<span class="lineNum">     128 </span>                :            :                                 const char *load_fun = &quot;function load_widget(wid_url) {\n&quot;
+<span class="lineNum">     129 </span>                :            :                                                        &quot;   var wid = WidgetManager.load(wid_url);\n&quot;
+<span class="lineNum">     130 </span>                :            :                                                        &quot;   var anim = document.getElementById('w_anim');\n&quot;
+<span class="lineNum">     131 </span>                :            :                                                        &quot;   if (wid != null) {\n&quot;
+<span class="lineNum">     132 </span>                :            :                                                        &quot;           wid.activate(anim);&quot;
+<span class="lineNum">     133 </span>                :            :                                                        &quot;           anim.setAttributeNS('http://www.w3.org/1999/xlink', 'href', wid.main);\n&quot;
+<span class="lineNum">     134 </span>                :            :                                                        &quot;   } else {\n&quot;
+<span class="lineNum">     135 </span>                :            :                                                        &quot;           alert('Widget ' + wid_url + ' is not valid');\n&quot;
+<span class="lineNum">     136 </span>                :            :                                                        &quot;   }\n&quot;
+<span class="lineNum">     137 </span>                :            :                                                        &quot;}\n&quot;;
+<span class="lineNum">     138 </span>                :            : 
+<span class="lineNum">     139 </span>                :<span class="lineNoCov">          0 :                                 gf_dom_add_text_node(n, gf_strdup(load_fun) );</span>
+<span class="lineNum">     140 </span>                :            :                         }
+<span class="lineNum">     141 </span>                :<span class="lineNoCov">          0 :                         gf_node_init(n);</span>
+<span class="lineNum">     142 </span>                :            : 
+<span class="lineNum">     143 </span>                :            : 
+<span class="lineNum">     144 </span>                :<span class="lineNoCov">          0 :                         wmpath = gf_modules_get_option((GF_BaseInterface *)plug, &quot;Widgets&quot;, &quot;WidgetManagerScript&quot;);</span>
+<span class="lineNum">     145 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         jsfile = wmpath ? gf_fopen(wmpath, &quot;rt&quot;) : NULL;</span>
+<span class="lineNum">     146 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (jsfile) {</span>
+<span class="lineNum">     147 </span>                :<span class="lineNoCov">          0 :                                 gf_fclose(jsfile);</span>
+<span class="lineNum">     148 </span>                :<span class="lineNoCov">          0 :                                 n = gf_node_new(wgtload-&gt;scene-&gt;graph, TAG_SVG_script);</span>
+<span class="lineNum">     149 </span>                :<span class="lineNoCov">          0 :                                 gf_node_register(n, root);</span>
+<span class="lineNum">     150 </span>                :<span class="lineNoCov">          0 :                                 gf_node_list_add_child_last(&amp;((GF_ParentNode *)root)-&gt;children, n, &amp;last);</span>
+<span class="lineNum">     151 </span>                :<span class="lineNoCov">          0 :                                 gf_node_get_attribute_by_tag(n, TAG_XLINK_ATT_href, GF_TRUE, GF_FALSE, &amp;info);</span>
+<span class="lineNum">     152 </span>                :<span class="lineNoCov">          0 :                                 gf_svg_parse_attribute(n, &amp;info, (char *) wmpath, 0);</span>
+<span class="lineNum">     153 </span>                :<span class="lineNoCov">          0 :                                 gf_node_init(n);</span>
+<span class="lineNum">     154 </span>                :            : 
+<span class="lineNum">     155 </span>                :<span class="lineNoCov">          0 :                                 n = gf_node_new(wgtload-&gt;scene-&gt;graph, TAG_SVG_script);</span>
+<span class="lineNum">     156 </span>                :<span class="lineNoCov">          0 :                                 gf_node_register(n, root);</span>
+<span class="lineNum">     157 </span>                :<span class="lineNoCov">          0 :                                 gf_node_list_add_child_last(&amp;((GF_ParentNode *)root)-&gt;children, n, &amp;last);</span>
+<span class="lineNum">     158 </span>                :<span class="lineNoCov">          0 :                                 gf_dom_add_text_node(n, gf_strdup(&quot;widget_manager_init();&quot;) );</span>
+<span class="lineNum">     159 </span>                :<span class="lineNoCov">          0 :                                 gf_node_init(n);</span>
+<span class="lineNum">     160 </span>                :            :                         }
+<span class="lineNum">     161 </span>                :            : 
+<span class="lineNum">     162 </span>                :<span class="lineNoCov">          0 :                         tmp = (char*)gf_malloc(sizeof(char) * (strlen(wgtload-&gt;file_name)+50) );</span>
+<span class="lineNum">     163 </span>                :<span class="lineNoCov">          0 :                         sprintf(tmp, &quot;load_widget(\&quot;%s\&quot;);\n&quot;, wgtload-&gt;file_name);</span>
+<span class="lineNum">     164 </span>                :            : 
+<span class="lineNum">     165 </span>                :<span class="lineNoCov">          0 :                         n = gf_node_new(wgtload-&gt;scene-&gt;graph, TAG_SVG_script);</span>
+<span class="lineNum">     166 </span>                :<span class="lineNoCov">          0 :                         gf_node_register(n, root);</span>
+<span class="lineNum">     167 </span>                :<span class="lineNoCov">          0 :                         gf_node_list_add_child_last(&amp;((GF_ParentNode *)root)-&gt;children, n, &amp;last);</span>
+<span class="lineNum">     168 </span>                :<span class="lineNoCov">          0 :                         gf_dom_add_text_node(n, gf_strdup(tmp) );</span>
+<span class="lineNum">     169 </span>                :<span class="lineNoCov">          0 :                         gf_free(tmp);</span>
+<span class="lineNum">     170 </span>                :            : 
+<span class="lineNum">     171 </span>                :<span class="lineNoCov">          0 :                         gf_node_init(n);</span>
+<span class="lineNum">     172 </span>                :            : 
+<span class="lineNum">     173 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if ((wgtload-&gt;scene-&gt;graph_attached!=1) &amp;&amp; (gf_sg_get_root_node(wgtload-&gt;scene-&gt;graph)!=NULL) ) {</span>
+<span class="lineNum">     174 </span>                :<span class="lineNoCov">          0 :                                 gf_scene_attach_to_compositor(wgtload-&gt;scene);</span>
+<span class="lineNum">     175 </span>                :            :                                 e = GF_EOS;
+<span class="lineNum">     176 </span>                :            :                         }
+<span class="lineNum">     177 </span>                :            :                 }
+<span class="lineNum">     178 </span>                :            :                 break;
+<span class="lineNum">     179 </span>                :            : 
+<span class="lineNum">     180 </span>                :            :         default:
+<span class="lineNum">     181 </span>                :            :                 return GF_BAD_PARAM;
+<span class="lineNum">     182 </span>                :            :         }
+<span class="lineNum">     183 </span>                :<span class="lineNoCov">          0 :         return e;</span>
+<a name="184"><span class="lineNum">     184 </span>                :            : }</a>
+<span class="lineNum">     185 </span>                :            : 
+<span class="lineNum">     186 </span>                :<span class="lineNoCov">          0 : static GF_Err WGT_AttachScene(GF_SceneDecoder *plug, GF_Scene *scene, Bool is_scene_decoder)</span>
+<span class="lineNum">     187 </span>                :            : {
+<span class="lineNum">     188 </span>                :<span class="lineNoCov">          0 :         WgtLoad *wgtload = (WgtLoad *)plug-&gt;privateStack;</span>
+<span class="lineNum">     189 </span>                :<span class="lineNoCov">          0 :         wgtload-&gt;scene = scene;</span>
+<span class="lineNum">     190 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<a name="191"><span class="lineNum">     191 </span>                :            : }</a>
+<span class="lineNum">     192 </span>                :            : 
+<span class="lineNum">     193 </span>                :<span class="lineNoCov">          0 : static GF_Err WGT_ReleaseScene(GF_SceneDecoder *plug)</span>
+<span class="lineNum">     194 </span>                :            : {
+<span class="lineNum">     195 </span>                :<span class="lineNoCov">          0 :         WgtLoad *wgtload = (WgtLoad *)plug-&gt;privateStack;</span>
+<span class="lineNum">     196 </span>                :<span class="lineNoCov">          0 :         wgtload-&gt;scene = NULL;</span>
+<span class="lineNum">     197 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<a name="198"><span class="lineNum">     198 </span>                :            : }</a>
+<span class="lineNum">     199 </span>                :            : 
+<span class="lineNum">     200 </span>                :<span class="lineNoCov">          0 : static GF_Err WGT_AttachStream(GF_BaseDecoder *plug, GF_ESD *esd)</span>
+<span class="lineNum">     201 </span>                :            : {
+<span class="lineNum">     202 </span>                :            :         GF_BitStream *bs;
+<span class="lineNum">     203 </span>                :<span class="lineNoCov">          0 :         WgtLoad *wgtload = (WgtLoad *)plug-&gt;privateStack;</span>
+<span class="lineNum">     204 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (esd-&gt;decoderConfig-&gt;upstream) return GF_NOT_SUPPORTED;</span>
+<span class="lineNum">     205 </span>                :            : 
+<span class="lineNum">     206 </span>                :            :         /* decSpecInfo is not null only when reading from an WGT file (local or distant, cached or not) */
+<span class="lineNum">     207 </span>                :            :         switch (esd-&gt;decoderConfig-&gt;objectTypeIndication) {
+<span class="lineNum">     208 </span>                :            :         case GPAC_OTI_PRIVATE_SCENE_WGT:
+<span class="lineNum">     209 </span>                :            :         default:
+<span class="lineNum">     210 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (!esd-&gt;decoderConfig-&gt;decoderSpecificInfo) return GF_NON_COMPLIANT_BITSTREAM;</span>
+<span class="lineNum">     211 </span>                :<span class="lineNoCov">          0 :                 bs = gf_bs_new(esd-&gt;decoderConfig-&gt;decoderSpecificInfo-&gt;data, esd-&gt;decoderConfig-&gt;decoderSpecificInfo-&gt;dataLength, GF_BITSTREAM_READ);</span>
+<span class="lineNum">     212 </span>                :<span class="lineNoCov">          0 :                 wgtload-&gt;file_size = gf_bs_read_u32(bs);</span>
+<span class="lineNum">     213 </span>                :<span class="lineNoCov">          0 :                 gf_bs_del(bs);</span>
+<span class="lineNum">     214 </span>                :<span class="lineNoCov">          0 :                 wgtload-&gt;file_name =  (char *) gf_malloc(sizeof(char)*(1 + esd-&gt;decoderConfig-&gt;decoderSpecificInfo-&gt;dataLength - sizeof(u32)) );</span>
+<span class="lineNum">     215 </span>                :<span class="lineNoCov">          0 :                 memcpy(wgtload-&gt;file_name, esd-&gt;decoderConfig-&gt;decoderSpecificInfo-&gt;data + sizeof(u32), esd-&gt;decoderConfig-&gt;decoderSpecificInfo-&gt;dataLength - sizeof(u32) );</span>
+<span class="lineNum">     216 </span>                :<span class="lineNoCov">          0 :                 wgtload-&gt;file_name[esd-&gt;decoderConfig-&gt;decoderSpecificInfo-&gt;dataLength - sizeof(u32) ] = 0;</span>
+<span class="lineNum">     217 </span>                :            :                 break;
+<span class="lineNum">     218 </span>                :            :         }
+<span class="lineNum">     219 </span>                :<span class="lineNoCov">          0 :         wgtload-&gt;oti = esd-&gt;decoderConfig-&gt;objectTypeIndication;</span>
+<span class="lineNum">     220 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<a name="221"><span class="lineNum">     221 </span>                :            : }</a>
+<span class="lineNum">     222 </span>                :            : 
+<span class="lineNum">     223 </span>                :<span class="lineNoCov">          0 : static GF_Err WGT_DetachStream(GF_BaseDecoder *plug, u16 ES_ID)</span>
+<span class="lineNum">     224 </span>                :            : {
+<span class="lineNum">     225 </span>                :<span class="lineNoCov">          0 :         WgtLoad *wgtload = (WgtLoad *)plug-&gt;privateStack;</span>
+<span class="lineNum">     226 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wgtload-&gt;file_name) gf_free(wgtload-&gt;file_name);</span>
+<span class="lineNum">     227 </span>                :<span class="lineNoCov">          0 :         wgtload-&gt;file_name = NULL;</span>
+<span class="lineNum">     228 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<a name="229"><span class="lineNum">     229 </span>                :            : }</a>
+<span class="lineNum">     230 </span>                :            : 
+<span class="lineNum">     231 </span>                :<span class="lineNoCov">          0 : const char *WGT_GetName(struct _basedecoder *plug)</span>
+<span class="lineNum">     232 </span>                :            : {
+<span class="lineNum">     233 </span>                :<span class="lineNoCov">          0 :         return &quot;GPAC W3C Widget Loader&quot;;</span>
+<a name="234"><span class="lineNum">     234 </span>                :            : }</a>
+<span class="lineNum">     235 </span>                :            : 
+<span class="lineNum">     236 </span>                :<span class="lineCov">        404 : static u32 WGT_CanHandleStream(GF_BaseDecoder *ifce, u32 StreamType, GF_ESD *esd, u8 PL)</span>
+<span class="lineNum">     237 </span>                :            : {
+<span class="lineNum">     238 </span>                :            :         /*don't reply to media type query*/
+<span class="lineNum">     239 </span>        [<span class="branchCov" title="Branch 0 was taken 404 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        404 :         if (!esd) return GF_CODEC_NOT_SUPPORTED;</span>
+<span class="lineNum">     240 </span>                :            : 
+<span class="lineNum">     241 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 402 times"> + </span>]:<span class="lineCov">        404 :         if (StreamType==GF_STREAM_PRIVATE_SCENE) {</span>
+<span class="lineNum">     242 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :                 if (esd-&gt;decoderConfig-&gt;objectTypeIndication==GPAC_OTI_PRIVATE_SCENE_WGT) return GF_CODEC_SUPPORTED;</span>
+<span class="lineNum">     243 </span>                :<span class="lineCov">        404 :                 return GF_CODEC_NOT_SUPPORTED;</span>
+<span class="lineNum">     244 </span>                :            :         }
+<span class="lineNum">     245 </span>                :            :         return GF_CODEC_NOT_SUPPORTED;
+<a name="246"><span class="lineNum">     246 </span>                :            : }</a>
+<span class="lineNum">     247 </span>                :            : 
+<span class="lineNum">     248 </span>                :<span class="lineNoCov">          0 : static GF_Err WGT_GetCapabilities(GF_BaseDecoder *plug, GF_CodecCapability *cap)</span>
+<span class="lineNum">     249 </span>                :            : {
+<span class="lineNum">     250 </span>                :<span class="lineNoCov">          0 :         cap-&gt;cap.valueInt = 0;</span>
+<span class="lineNum">     251 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (cap-&gt;CapCode==GF_CODEC_PADDING_BYTES) {</span>
+<span class="lineNum">     252 </span>                :            :                 /* Adding one byte of padding for \r\n problems*/
+<span class="lineNum">     253 </span>                :<span class="lineNoCov">          0 :                 cap-&gt;cap.valueInt = 1;</span>
+<span class="lineNum">     254 </span>                :<span class="lineNoCov">          0 :                 return GF_OK;</span>
+<span class="lineNum">     255 </span>                :            :         }
+<span class="lineNum">     256 </span>                :            :         return GF_NOT_SUPPORTED;
+<a name="257"><span class="lineNum">     257 </span>                :            : }</a>
+<span class="lineNum">     258 </span>                :            : 
+<span class="lineNum">     259 </span>                :<span class="lineNoCov">          0 : static GF_Err WGT_SetCapabilities(GF_BaseDecoder *plug, const GF_CodecCapability capability)</span>
+<span class="lineNum">     260 </span>                :            : {
+<span class="lineNum">     261 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<span class="lineNum">     262 </span>                :            : }
+<a name="263"><span class="lineNum">     263 </span>                :            : </a>
+<span class="lineNum">     264 </span>                :            : /*interface create*/
+<span class="lineNum">     265 </span>                :<span class="lineCov">        406 : GF_BaseInterface *LoadWidgetReader()</span>
+<span class="lineNum">     266 </span>                :            : {
+<span class="lineNum">     267 </span>                :            :         WgtLoad *wgtload;
+<span class="lineNum">     268 </span>                :            :         GF_SceneDecoder *sdec;
+<span class="lineNum">     269 </span>                :            : 
+<span class="lineNum">     270 </span>        [<span class="branchCov" title="Branch 1 was taken 406 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        406 :         GF_SAFEALLOC(sdec, GF_SceneDecoder)</span>
+<span class="lineNum">     271 </span>        [<span class="branchCov" title="Branch 0 was taken 406 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        406 :         if (!sdec) return NULL;</span>
+<span class="lineNum">     272 </span>                :<span class="lineCov">        406 :         GF_REGISTER_MODULE_INTERFACE(sdec, GF_SCENE_DECODER_INTERFACE, &quot;GPAC W3C Widget Loader&quot;, &quot;gpac distribution&quot;);</span>
+<span class="lineNum">     273 </span>                :            : 
+<span class="lineNum">     274 </span>        [<span class="branchCov" title="Branch 1 was taken 406 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        406 :         GF_SAFEALLOC(wgtload, WgtLoad);</span>
+<span class="lineNum">     275 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 406 times"> + </span>]:<span class="lineCov">        406 :         if (!wgtload) {</span>
+<span class="lineNum">     276 </span>                :<span class="lineNoCov">          0 :                 gf_free(sdec);</span>
+<span class="lineNum">     277 </span>                :<span class="lineNoCov">          0 :                 return NULL;</span>
+<span class="lineNum">     278 </span>                :            :         }
+<span class="lineNum">     279 </span>                :            :         
+<span class="lineNum">     280 </span>                :<span class="lineCov">        406 :         sdec-&gt;privateStack = wgtload;</span>
+<span class="lineNum">     281 </span>                :<span class="lineCov">        406 :         sdec-&gt;AttachStream = WGT_AttachStream;</span>
+<span class="lineNum">     282 </span>                :<span class="lineCov">        406 :         sdec-&gt;CanHandleStream = WGT_CanHandleStream;</span>
+<span class="lineNum">     283 </span>                :<span class="lineCov">        406 :         sdec-&gt;DetachStream = WGT_DetachStream;</span>
+<span class="lineNum">     284 </span>                :<span class="lineCov">        406 :         sdec-&gt;AttachScene = WGT_AttachScene;</span>
+<span class="lineNum">     285 </span>                :<span class="lineCov">        406 :         sdec-&gt;ReleaseScene = WGT_ReleaseScene;</span>
+<span class="lineNum">     286 </span>                :<span class="lineCov">        406 :         sdec-&gt;ProcessData = WGT_ProcessData;</span>
+<span class="lineNum">     287 </span>                :<span class="lineCov">        406 :         sdec-&gt;GetName = WGT_GetName;</span>
+<span class="lineNum">     288 </span>                :<span class="lineCov">        406 :         sdec-&gt;SetCapabilities = WGT_SetCapabilities;</span>
+<span class="lineNum">     289 </span>                :<span class="lineCov">        406 :         sdec-&gt;GetCapabilities = WGT_GetCapabilities;</span>
+<span class="lineNum">     290 </span>                :<span class="lineCov">        406 :         return (GF_BaseInterface *)sdec;</span>
+<span class="lineNum">     291 </span>                :            : }
+<span class="lineNum">     292 </span>                :            : 
+<a name="293"><span class="lineNum">     293 </span>                :            : </a>
+<span class="lineNum">     294 </span>                :            : /*interface destroy*/
+<span class="lineNum">     295 </span>                :<span class="lineCov">        406 : void ShutdownWidgetReader(GF_BaseInterface *ifce)</span>
+<span class="lineNum">     296 </span>                :            : {
+<span class="lineNum">     297 </span>                :            :         GF_SceneDecoder *sdec = (GF_SceneDecoder *)ifce;
+<span class="lineNum">     298 </span>                :            :         WgtLoad *wgtload;
+<span class="lineNum">     299 </span>        [<span class="branchCov" title="Branch 0 was taken 406 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        406 :         if (!ifce)</span>
+<span class="lineNum">     300 </span>                :<span class="lineCov">        406 :                 return;</span>
+<span class="lineNum">     301 </span>                :<span class="lineCov">        406 :         wgtload = (WgtLoad *) sdec-&gt;privateStack;</span>
+<span class="lineNum">     302 </span>        [<span class="branchCov" title="Branch 0 was taken 406 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        406 :         if (wgtload)</span>
+<span class="lineNum">     303 </span>                :<span class="lineCov">        406 :                 gf_free(wgtload);</span>
+<span class="lineNum">     304 </span>                :<span class="lineCov">        406 :         sdec-&gt;privateStack = NULL;</span>
+<span class="lineNum">     305 </span>                :<span class="lineCov">        406 :         gf_free(sdec);</span>
+<span class="lineNum">     306 </span>                :            : }
+<span class="lineNum">     307 </span>                :            : 
+<span class="lineNum">     308 </span>                :            : #endif  /* defined(GPAC_HAS_SPIDERMONKEY) &amp;&amp; !defined(GPAC_DISABLE_SVG) */
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

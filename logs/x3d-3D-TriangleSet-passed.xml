@@ -1,0 +1,6 @@
+ <test name="x3d-3D-TriangleSet" result="OK" date="30/06/2016 11:55:03">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="280864" cpu_percent="194%" cpu_elapsed_time="0:02.62" cpu_user_time="4.98" cpu_kernel_time="0.11" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/x3d-3D-TriangleSet-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/x3d/x3d-3D-TriangleSet.x3dv -opt Validator:Mode=Disable</command_line>
+  </stat>
+ </test>

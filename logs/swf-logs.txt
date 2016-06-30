@@ -1,0 +1,21 @@
+*** swf logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:53:07 ***
+
+
+*** Subtest "mp4box-import": executing "MP4Box -noprog -for-test  -mem-track -mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/swf/cuisine.swf -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cuisine.mp4" ***
+[32mSWF Import - Scene Size 550x400 - 490 frames @ 24 FPS
+[0mSaving to /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cuisine.mp4: 0.500 secs Interleaving
+
+
+*** Subtest "mp4client-play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/swf-mp4client-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/swf/cuisine.swf -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/swf/cuisine.swf
+Service Connected
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 98 ms) - ran for 2256 ms
+GPAC cleanup ...
+

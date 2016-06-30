@@ -1,0 +1,6 @@
+ <test name="mp4client-sdlgl-yuv" result="OK" date="30/06/2016 11:50:30">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="245936" cpu_percent="188%" cpu_elapsed_time="0:01.77" cpu_user_time="3.25" cpu_kernel_time="0.09" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-sdlgl-yuv-dump -size 200x200 -opt Video:DriverName=sdl_out -opt Compositor:OpenGLMode=hybrid -no-save /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/count_video.cmp -opt Validator:Mode=Disable</command_line>
+  </stat>
+ </test>

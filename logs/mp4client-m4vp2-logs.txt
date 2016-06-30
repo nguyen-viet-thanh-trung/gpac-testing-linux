@@ -1,0 +1,18 @@
+*** mp4client-m4vp2 logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:49:49 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-m4vp2-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/count_video.cmp -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/count_video.cmp
+[m4v @ 0x70ed20] max_analyze_duration reached
+[m4v @ 0x70ed20] Estimating duration from bitrate, this may be inaccurate
+Service Connected
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 74 ms) - ran for 2578 ms
+GPAC cleanup ...
+

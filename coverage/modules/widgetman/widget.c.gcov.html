@@ -1,0 +1,539 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - modules/widgetman/widget.c</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">modules/widgetman</a> - widget.c<span style="font-size: 80%;"> (source / <a href="widget.c.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">205</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2016-06-30</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">190</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : //This software module was originally developed by TelecomParisTech in the</a>
+<span class="lineNum">       2 </span>                :            : //course of the development of MPEG-U Widgets (ISO/IEC 23007-1) standard.
+<span class="lineNum">       3 </span>                :            : //
+<span class="lineNum">       4 </span>                :            : //This software module is an implementation of a part of one or
+<span class="lineNum">       5 </span>                :            : //more MPEG-U Widgets (ISO/IEC 23007-1) tools as specified by the MPEG-U Widgets
+<span class="lineNum">       6 </span>                :            : //(ISO/IEC 23007-1) standard. ISO/IEC gives users of the MPEG-U Widgets
+<span class="lineNum">       7 </span>                :            : //(ISO/IEC 23007-1) free license to this software module or modifications
+<span class="lineNum">       8 </span>                :            : //thereof for use in hardware or software products claiming conformance to
+<span class="lineNum">       9 </span>                :            : //the MPEG-U Widgets (ISO/IEC 23007-1). Those intending to use this software
+<span class="lineNum">      10 </span>                :            : //module in hardware or software products are advised that its use may
+<span class="lineNum">      11 </span>                :            : //infringe existing patents.
+<span class="lineNum">      12 </span>                :            : //The original developer of this software module and his/her company, the
+<span class="lineNum">      13 </span>                :            : //subsequent editors and their companies, and ISO/IEC have no liability
+<span class="lineNum">      14 </span>                :            : //for use of this software module or modifications thereof in an implementation.
+<span class="lineNum">      15 </span>                :            : //Copyright is not released for non MPEG-U Widgets (ISO/IEC 23007-1) conforming
+<span class="lineNum">      16 </span>                :            : //products.
+<span class="lineNum">      17 </span>                :            : //Telecom ParisTech retains full right to use the code for his/her own purpose,
+<span class="lineNum">      18 </span>                :            : //assign or donate the code to a third party and to inhibit third parties from
+<span class="lineNum">      19 </span>                :            : //using the code for non MPEG-U Widgets (ISO/IEC 23007-1) conforming products.
+<span class="lineNum">      20 </span>                :            : //
+<span class="lineNum">      21 </span>                :            : //This copyright notice must be included in all copies or derivative works.
+<span class="lineNum">      22 </span>                :            : //
+<span class="lineNum">      23 </span>                :            : //Copyright (c) 2009 Telecom ParisTech.
+<span class="lineNum">      24 </span>                :            : //
+<span class="lineNum">      25 </span>                :            : // Alternatively, this software module may be redistributed and/or modified
+<span class="lineNum">      26 </span>                :            : //  it under the terms of the GNU Lesser General Public License as published by
+<span class="lineNum">      27 </span>                :            : //  the Free Software Foundation; either version 2, or (at your option)
+<span class="lineNum">      28 </span>                :            : //  any later version.
+<span class="lineNum">      29 </span>                :            : //
+<span class="lineNum">      30 </span>                :            : /////////////////////////////////////////////////////////////////////////////////
+<span class="lineNum">      31 </span>                :            : 
+<span class="lineNum">      32 </span>                :            : 
+<span class="lineNum">      33 </span>                :            : /////////////////////////////////////////////////////////////////////////////////
+<span class="lineNum">      34 </span>                :            : //
+<span class="lineNum">      35 </span>                :            : //      Authors:
+<span class="lineNum">      36 </span>                :            : //                                      Jean Le Feuvre, Telecom ParisTech
+<span class="lineNum">      37 </span>                :            : //
+<span class="lineNum">      38 </span>                :            : /////////////////////////////////////////////////////////////////////////////////
+<span class="lineNum">      39 </span>                :            : 
+<span class="lineNum">      40 </span>                :            : 
+<span class="lineNum">      41 </span>                :            : #include &quot;widgetman.h&quot;
+<span class="lineNum">      42 </span>                :            : 
+<a name="43"><span class="lineNum">      43 </span>                :            : #ifdef GPAC_HAS_SPIDERMONKEY</a>
+<span class="lineNum">      44 </span>                :            : 
+<span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 : JSBool SMJS_FUNCTION(widget_has_feature)</span>
+<span class="lineNum">      46 </span>                :            : {
+<span class="lineNum">      47 </span>                :            :         char *feat_name;
+<span class="lineNum">      48 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">      49 </span>                :            :         SMJS_ARGS
+<span class="lineNum">      50 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInstance *wid = (GF_WidgetInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">      51 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!wid) return JS_FALSE;</span>
+<span class="lineNum">      52 </span>                :            : 
+<span class="lineNum">      53 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!argc || !JSVAL_IS_STRING(argv[0])) return JS_TRUE;</span>
+<span class="lineNum">      54 </span>                :            : 
+<span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 :         feat_name = SMJS_CHARS(c, argv[0]);</span>
+<span class="lineNum">      56 </span>                :<span class="lineNoCov">          0 :         SMJS_SET_RVAL( BOOLEAN_TO_JSVAL( JS_FALSE ) );</span>
+<span class="lineNum">      57 </span>                :            : 
+<span class="lineNum">      58 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!strcmp(feat_name, &quot;urn:mpeg:systems:mpeg-u:2009&quot;)) SMJS_SET_RVAL( BOOLEAN_TO_JSVAL( JS_TRUE ));</span>
+<span class="lineNum">      59 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         SMJS_FREE(c, feat_name);</span>
+<span class="lineNum">      60 </span>                :            :         return JS_TRUE;
+<a name="61"><span class="lineNum">      61 </span>                :            : }</a>
+<span class="lineNum">      62 </span>                :            : 
+<span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 : JSBool SMJS_FUNCTION(widget_open_url)</span>
+<span class="lineNum">      64 </span>                :            : {
+<span class="lineNum">      65 </span>                :            :         GF_Event evt;
+<span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">      67 </span>                :            :         SMJS_ARGS
+<span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInstance *wid = (GF_WidgetInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">      69 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!wid || !argc || !JSVAL_IS_STRING(argv[0])) return JS_TRUE;</span>
+<span class="lineNum">      70 </span>                :            : 
+<span class="lineNum">      71 </span>                :            :         memset(&amp;evt, 0, sizeof(GF_Event));
+<span class="lineNum">      72 </span>                :<span class="lineNoCov">          0 :         evt.type = GF_EVENT_NAVIGATE;</span>
+<span class="lineNum">      73 </span>                :<span class="lineNoCov">          0 :         evt.navigate.to_url = SMJS_CHARS(c, argv[0]);</span>
+<span class="lineNum">      74 </span>                :<span class="lineNoCov">          0 :         gf_term_send_event(wid-&gt;widget-&gt;wm-&gt;term, &amp;evt);</span>
+<span class="lineNum">      75 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         SMJS_FREE(c, (char *)evt.navigate.to_url);</span>
+<span class="lineNum">      76 </span>                :            : 
+<span class="lineNum">      77 </span>                :            :         return JS_TRUE;
+<a name="78"><span class="lineNum">      78 </span>                :            : }</a>
+<span class="lineNum">      79 </span>                :            : 
+<span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 : JSBool SMJS_FUNCTION(widget_get_attention)</span>
+<span class="lineNum">      81 </span>                :            : {
+<span class="lineNum">      82 </span>                :            :         jsval fval;
+<span class="lineNum">      83 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">      84 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInstance *wid = (GF_WidgetInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">      85 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!wid) return JS_TRUE;</span>
+<span class="lineNum">      86 </span>                :            : 
+<span class="lineNum">      87 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if ((JS_LookupProperty(c, wid-&gt;widget-&gt;wm-&gt;obj, &quot;getAttention&quot;, &amp;fval)==JS_TRUE) &amp;&amp; JSVAL_IS_OBJECT(fval)) {</span>
+<span class="lineNum">      88 </span>                :            :                 jsval args[1];
+<span class="lineNum">      89 </span>                :<span class="lineNoCov">          0 :                 args[0] = OBJECT_TO_JSVAL(wid-&gt;obj);</span>
+<span class="lineNum">      90 </span>                :<span class="lineNoCov">          0 :                 JS_CallFunctionValue(c, wid-&gt;widget-&gt;wm-&gt;obj, fval, 1, args, SMJS_GET_RVAL);</span>
+<span class="lineNum">      91 </span>                :            :         }
+<span class="lineNum">      92 </span>                :            :         return JS_TRUE;
+<a name="93"><span class="lineNum">      93 </span>                :            : }</a>
+<span class="lineNum">      94 </span>                :            : 
+<span class="lineNum">      95 </span>                :<span class="lineNoCov">          0 : JSBool SMJS_FUNCTION(widget_show_notification)</span>
+<span class="lineNum">      96 </span>                :            : {
+<span class="lineNum">      97 </span>                :            :         jsval fval;
+<span class="lineNum">      98 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">      99 </span>                :<span class="lineNoCov">          0 :         SMJS_ARGS</span>
+<span class="lineNum">     100 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInstance *wid = (GF_WidgetInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     101 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!wid) return JS_TRUE;</span>
+<span class="lineNum">     102 </span>                :            : 
+<span class="lineNum">     103 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if ((JS_LookupProperty(c, wid-&gt;widget-&gt;wm-&gt;obj, &quot;showNotification&quot;, &amp;fval)==JS_TRUE) &amp;&amp; JSVAL_IS_OBJECT(fval)) {</span>
+<span class="lineNum">     104 </span>                :            :                 jsval *vars;
+<span class="lineNum">     105 </span>                :            :                 u32 i;
+<span class="lineNum">     106 </span>                :<span class="lineNoCov">          0 :                 vars = (jsval*)gf_malloc(sizeof(jsval)*(argc+1));</span>
+<span class="lineNum">     107 </span>                :<span class="lineNoCov">          0 :                 vars[0] = OBJECT_TO_JSVAL(wid-&gt;obj);</span>
+<span class="lineNum">     108 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (i=0; i&lt;argc; i++)</span>
+<span class="lineNum">     109 </span>                :<span class="lineNoCov">          0 :                         vars[i+1] = argv[i];</span>
+<span class="lineNum">     110 </span>                :            : 
+<span class="lineNum">     111 </span>                :<span class="lineNoCov">          0 :                 JS_CallFunctionValue(c, wid-&gt;widget-&gt;wm-&gt;obj, fval, argc+1, vars, SMJS_GET_RVAL);</span>
+<span class="lineNum">     112 </span>                :            :         }
+<span class="lineNum">     113 </span>                :            :         return JS_TRUE;
+<span class="lineNum">     114 </span>                :            : }
+<a name="115"><span class="lineNum">     115 </span>                :            : </a>
+<span class="lineNum">     116 </span>                :            : 
+<span class="lineNum">     117 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION(widget_call_message_reply_callback)</span>
+<span class="lineNum">     118 </span>                :            : {
+<span class="lineNum">     119 </span>                :            :         JSObject *list;
+<span class="lineNum">     120 </span>                :            :         jsval *vals, fval;
+<span class="lineNum">     121 </span>                :            :         u32 i, count;
+<span class="lineNum">     122 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">     123 </span>                :            :         SMJS_ARGS
+<span class="lineNum">     124 </span>                :<span class="lineNoCov">          0 :         GF_WidgetMessage *msg = SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     125 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!msg || !argc || !JSVAL_IS_OBJECT(argv[0]) ) return JS_FALSE;</span>
+<span class="lineNum">     126 </span>                :            : 
+<span class="lineNum">     127 </span>[<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>][<span class="branchNoExec" title="Branch 3 was not executed"> # </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if ((JS_LookupProperty(c, obj, &quot;replyCallback&quot;, &amp;fval)==JS_TRUE) &amp;&amp; JSVAL_IS_OBJECT(fval)) {</span>
+<span class="lineNum">     128 </span>                :<span class="lineNoCov">          0 :                 list = JSVAL_TO_OBJECT(argv[0]);</span>
+<span class="lineNum">     129 </span>                :<span class="lineNoCov">          0 :                 JS_GetArrayLength(c, list, (jsuint*) &amp;count);</span>
+<span class="lineNum">     130 </span>                :<span class="lineNoCov">          0 :                 vals = (jsval*)gf_malloc(sizeof(jsval)*(count+1));</span>
+<span class="lineNum">     131 </span>                :<span class="lineNoCov">          0 :                 vals[0] = OBJECT_TO_JSVAL(obj);</span>
+<span class="lineNum">     132 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (i=0; i&lt;count; i++) {</span>
+<span class="lineNum">     133 </span>                :<span class="lineNoCov">          0 :                         JS_GetElement(c, list, (jsint) i, &amp;vals[i+1]);</span>
+<span class="lineNum">     134 </span>                :            :                 }
+<span class="lineNum">     135 </span>                :<span class="lineNoCov">          0 :                 JS_CallFunctionValue(c, obj, fval, count, vals, SMJS_GET_RVAL);</span>
+<span class="lineNum">     136 </span>                :<span class="lineNoCov">          0 :                 gf_free(vals);</span>
+<span class="lineNum">     137 </span>                :            :         }
+<span class="lineNum">     138 </span>                :            :         return JS_TRUE;
+<a name="139"><span class="lineNum">     139 </span>                :            : }</a>
+<span class="lineNum">     140 </span>                :            : 
+<span class="lineNum">     141 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION(widget_message_handler_factory)</span>
+<span class="lineNum">     142 </span>                :            : {
+<span class="lineNum">     143 </span>                :            :         char *msg_name;
+<span class="lineNum">     144 </span>                :            :         u32 i, count;
+<span class="lineNum">     145 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">     146 </span>                :            :         SMJS_ARGS
+<span class="lineNum">     147 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInterfaceInstance *bifce = (GF_WidgetInterfaceInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     148 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!bifce) return JS_FALSE;</span>
+<span class="lineNum">     149 </span>                :            : 
+<span class="lineNum">     150 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!argc) return JS_FALSE;</span>
+<span class="lineNum">     151 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!JSVAL_IS_STRING(argv[0])) return JS_FALSE;</span>
+<span class="lineNum">     152 </span>                :            : 
+<span class="lineNum">     153 </span>                :<span class="lineNoCov">          0 :         msg_name = SMJS_CHARS(c, argv[0]);</span>
+<span class="lineNum">     154 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!msg_name ) return JS_FALSE;</span>
+<span class="lineNum">     155 </span>                :            : 
+<span class="lineNum">     156 </span>                :<span class="lineNoCov">          0 :         SMJS_SET_RVAL( JSVAL_NULL );</span>
+<span class="lineNum">     157 </span>                :<span class="lineNoCov">          0 :         count = gf_list_count(bifce-&gt;ifce-&gt;messages);</span>
+<span class="lineNum">     158 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (i=0; i&lt;count; i++) {</span>
+<span class="lineNum">     159 </span>                :<span class="lineNoCov">          0 :                 GF_WidgetMessage *msg = (GF_WidgetMessage*)gf_list_get(bifce-&gt;ifce-&gt;messages, i);</span>
+<span class="lineNum">     160 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (!strcmp(msg-&gt;name, msg_name)) {</span>
+<span class="lineNum">     161 </span>                :<span class="lineNoCov">          0 :                         JSObject *an_obj = JS_NewObject(c, &amp;bifce-&gt;wid-&gt;widget-&gt;wm-&gt;widgetAnyClass._class, 0, 0);</span>
+<span class="lineNum">     162 </span>                :<span class="lineNoCov">          0 :                         SMJS_SET_PRIVATE(c, an_obj, msg);</span>
+<span class="lineNum">     163 </span>                :<span class="lineNoCov">          0 :                         JS_DefineProperty(c, an_obj, &quot;msgName&quot;, STRING_TO_JSVAL( JS_NewStringCopyZ(c, msg-&gt;name) ), 0, 0, JSPROP_READONLY | JSPROP_PERMANENT);</span>
+<span class="lineNum">     164 </span>                :<span class="lineNoCov">          0 :                         JS_DefineProperty(c, an_obj, &quot;interfaceHandler&quot;, OBJECT_TO_JSVAL( obj ), 0, 0, JSPROP_READONLY | JSPROP_PERMANENT);</span>
+<span class="lineNum">     165 </span>                :<span class="lineNoCov">          0 :                         JS_DefineFunction(c, an_obj, &quot;onInvokeReply&quot;, widget_call_message_reply_callback, 1, 0);</span>
+<span class="lineNum">     166 </span>                :            : 
+<span class="lineNum">     167 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if ((argc==2) &amp;&amp; JSVAL_IS_OBJECT(argv[1]) &amp;&amp; !JSVAL_IS_NULL(argv[1]))</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">     168 </span>                :<span class="lineNoCov">          0 :                                 JS_DefineProperty(c, an_obj, &quot;replyCallback&quot;, argv[1], 0, 0, JSPROP_READONLY | JSPROP_PERMANENT);</span>
+<span class="lineNum">     169 </span>                :            : 
+<span class="lineNum">     170 </span>                :<span class="lineNoCov">          0 :                         SMJS_SET_RVAL( OBJECT_TO_JSVAL(an_obj) );</span>
+<span class="lineNum">     171 </span>                :            :                 }
+<span class="lineNum">     172 </span>                :            :         }
+<span class="lineNum">     173 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         SMJS_FREE(c, msg_name);</span>
+<a name="174"><span class="lineNum">     174 </span>                :            :         return JS_TRUE;</a>
+<span class="lineNum">     175 </span>                :            : }
+<span class="lineNum">     176 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION(widget_invoke_message)</span>
+<span class="lineNum">     177 </span>                :            : {
+<span class="lineNum">     178 </span>                :            :         jsval oval;
+<span class="lineNum">     179 </span>                :            :         GF_WidgetMessage *msg = NULL;
+<span class="lineNum">     180 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">     181 </span>                :<span class="lineNoCov">          0 :         SMJS_ARGS</span>
+<span class="lineNum">     182 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInterfaceInstance *bifce = (GF_WidgetInterfaceInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     183 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!bifce) return JS_FALSE;</span>
+<span class="lineNum">     184 </span>                :            : 
+<span class="lineNum">     185 </span>                :<span class="lineNoCov">          0 :         SMJS_SET_RVAL( JSVAL_NULL );</span>
+<span class="lineNum">     186 </span>                :            : 
+<span class="lineNum">     187 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!JSVAL_IS_OBJECT(argv[0])) return JS_FALSE;</span>
+<span class="lineNum">     188 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (JSVAL_IS_NULL(argv[0])) return JS_FALSE;</span>
+<span class="lineNum">     189 </span>                :<span class="lineNoCov">          0 :         msg = (GF_WidgetMessage *)SMJS_GET_PRIVATE(c, JSVAL_TO_OBJECT(argv[0]) );</span>
+<span class="lineNum">     190 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!msg) return JS_FALSE;</span>
+<span class="lineNum">     191 </span>                :            : 
+<span class="lineNum">     192 </span>                :            :         /*look for JS Callback &quot;invoke&quot; in the widget manager script*/
+<span class="lineNum">     193 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (JS_LookupProperty(c, bifce-&gt;ifce-&gt;obj, &quot;invoke&quot;, &amp;oval)==JS_TRUE) {</span>
+<span class="lineNum">     194 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (JSVAL_IS_OBJECT(oval)) {</span>
+<span class="lineNum">     195 </span>                :<span class="lineNoCov">          0 :                         JS_CallFunctionValue(bifce-&gt;wid-&gt;widget-&gt;wm-&gt;ctx, bifce-&gt;ifce-&gt;obj, oval, argc, argv, SMJS_GET_RVAL );</span>
+<span class="lineNum">     196 </span>                :            :                 }
+<span class="lineNum">     197 </span>                :            :         }
+<span class="lineNum">     198 </span>                :            : 
+<span class="lineNum">     199 </span>                :            :         return JS_TRUE;
+<a name="200"><span class="lineNum">     200 </span>                :            : }</a>
+<span class="lineNum">     201 </span>                :            : 
+<span class="lineNum">     202 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION(widget_invoke_message_reply)</span>
+<span class="lineNum">     203 </span>                :            : {
+<span class="lineNum">     204 </span>                :            :         jsval oval;
+<span class="lineNum">     205 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">     206 </span>                :<span class="lineNoCov">          0 :         SMJS_ARGS</span>
+<span class="lineNum">     207 </span>                :            :         GF_WidgetMessage *msg = NULL;
+<span class="lineNum">     208 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInterfaceInstance *bifce = (GF_WidgetInterfaceInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     209 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!bifce) return JS_FALSE;</span>
+<span class="lineNum">     210 </span>                :            : 
+<span class="lineNum">     211 </span>                :<span class="lineNoCov">          0 :         SMJS_SET_RVAL( JSVAL_NULL );</span>
+<span class="lineNum">     212 </span>                :            : 
+<span class="lineNum">     213 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!JSVAL_IS_OBJECT(argv[0])) return JS_FALSE;</span>
+<span class="lineNum">     214 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (JSVAL_IS_NULL(argv[0])) return JS_FALSE;</span>
+<span class="lineNum">     215 </span>                :<span class="lineNoCov">          0 :         msg = (GF_WidgetMessage *)SMJS_GET_PRIVATE(c, JSVAL_TO_OBJECT(argv[0]) );</span>
+<span class="lineNum">     216 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!msg) return JS_FALSE;</span>
+<span class="lineNum">     217 </span>                :            : 
+<span class="lineNum">     218 </span>                :            :         /*look for JS Callback &quot;invokeReply&quot; in the widget manager script*/
+<span class="lineNum">     219 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (JS_LookupProperty(c, bifce-&gt;ifce-&gt;obj, &quot;invokeReply&quot;, &amp;oval)==JS_TRUE) {</span>
+<span class="lineNum">     220 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (JSVAL_IS_OBJECT(oval)) {</span>
+<span class="lineNum">     221 </span>                :<span class="lineNoCov">          0 :                         JS_CallFunctionValue(bifce-&gt;wid-&gt;widget-&gt;wm-&gt;ctx, bifce-&gt;ifce-&gt;obj, oval, argc, argv, SMJS_GET_RVAL);</span>
+<span class="lineNum">     222 </span>                :            :                 }
+<span class="lineNum">     223 </span>                :            :         }
+<span class="lineNum">     224 </span>                :            :         return JS_TRUE;
+<a name="225"><span class="lineNum">     225 </span>                :            : }</a>
+<span class="lineNum">     226 </span>                :            : 
+<span class="lineNum">     227 </span>                :<span class="lineNoCov">          0 : static void widget_interface_js_bind(JSContext *c, GF_WidgetInterfaceInstance *ifce)</span>
+<span class="lineNum">     228 </span>                :            : {
+<span class="lineNum">     229 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!ifce-&gt;obj) {</span>
+<span class="lineNum">     230 </span>                :<span class="lineNoCov">          0 :                 ifce-&gt;obj = JS_NewObject(c, &amp;ifce-&gt;wid-&gt;widget-&gt;wm-&gt;widgetAnyClass._class, 0, 0);</span>
+<span class="lineNum">     231 </span>                :<span class="lineNoCov">          0 :                 SMJS_SET_PRIVATE(c, ifce-&gt;obj, ifce);</span>
+<span class="lineNum">     232 </span>                :<span class="lineNoCov">          0 :                 gf_js_add_root(c, &amp;ifce-&gt;obj, GF_JSGC_OBJECT);</span>
+<span class="lineNum">     233 </span>                :<span class="lineNoCov">          0 :                 JS_DefineProperty(c, ifce-&gt;obj, &quot;type&quot;, STRING_TO_JSVAL( JS_NewStringCopyZ(c, ifce-&gt;ifce-&gt;type) ), 0, 0, JSPROP_READONLY | JSPROP_PERMANENT);</span>
+<span class="lineNum">     234 </span>                :<span class="lineNoCov">          0 :                 JS_DefineProperty(c, ifce-&gt;obj, &quot;bound&quot;, STRING_TO_JSVAL( JS_NewStringCopyZ(c, ifce-&gt;hostname) ), 0, 0, JSPROP_READONLY | JSPROP_PERMANENT);</span>
+<span class="lineNum">     235 </span>                :<span class="lineNoCov">          0 :                 JS_DefineFunction(c, ifce-&gt;obj, &quot;invoke&quot;, widget_invoke_message, 1, 0);</span>
+<span class="lineNum">     236 </span>                :<span class="lineNoCov">          0 :                 JS_DefineFunction(c, ifce-&gt;obj, &quot;msgHandlerFactory&quot;, widget_message_handler_factory, 1, 0);</span>
+<span class="lineNum">     237 </span>                :<span class="lineNoCov">          0 :                 JS_DefineFunction(c, ifce-&gt;obj, &quot;invokeReply&quot;, widget_invoke_message_reply, 1, 0);</span>
+<span class="lineNum">     238 </span>                :            :         }
+<a name="239"><span class="lineNum">     239 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     240 </span>                :            : 
+<span class="lineNum">     241 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION(widget_get_interfaces)</span>
+<span class="lineNum">     242 </span>                :            : {
+<span class="lineNum">     243 </span>                :            :         u32 i, count;
+<span class="lineNum">     244 </span>                :            :         char *ifce_name;
+<span class="lineNum">     245 </span>                :            :         JSObject *list;
+<span class="lineNum">     246 </span>                :            :         jsuint idx;
+<span class="lineNum">     247 </span>                :            :         jsval v;
+<span class="lineNum">     248 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">     249 </span>                :            :         SMJS_ARGS
+<span class="lineNum">     250 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInstance *wid = (GF_WidgetInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     251 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!wid) return JS_FALSE;</span>
+<span class="lineNum">     252 </span>                :            : 
+<span class="lineNum">     253 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!argc || !JSVAL_IS_STRING(argv[0])) return JS_TRUE;</span>
+<span class="lineNum">     254 </span>                :<span class="lineNoCov">          0 :         ifce_name = SMJS_CHARS(c, argv[0]);</span>
+<span class="lineNum">     255 </span>                :            : 
+<span class="lineNum">     256 </span>                :<span class="lineNoCov">          0 :         list = JS_NewArrayObject(c, 0, 0);</span>
+<span class="lineNum">     257 </span>                :            : 
+<span class="lineNum">     258 </span>                :<span class="lineNoCov">          0 :         count = gf_list_count(wid-&gt;bound_ifces);</span>
+<span class="lineNum">     259 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (i=0; i&lt;count; i++) {</span>
+<span class="lineNum">     260 </span>                :<span class="lineNoCov">          0 :                 GF_WidgetInterfaceInstance *ifce = (GF_WidgetInterfaceInstance*)gf_list_get(wid-&gt;bound_ifces, i);</span>
+<span class="lineNum">     261 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (strcmp(ifce-&gt;ifce-&gt;type, ifce_name)) continue;</span>
+<span class="lineNum">     262 </span>                :            : 
+<span class="lineNum">     263 </span>                :<span class="lineNoCov">          0 :                 widget_interface_js_bind(c, ifce);</span>
+<span class="lineNum">     264 </span>                :            : 
+<span class="lineNum">     265 </span>                :<span class="lineNoCov">          0 :                 JS_GetArrayLength(c, list, &amp;idx);</span>
+<span class="lineNum">     266 </span>                :<span class="lineNoCov">          0 :                 v = OBJECT_TO_JSVAL(ifce-&gt;obj);</span>
+<span class="lineNum">     267 </span>                :<span class="lineNoCov">          0 :                 JS_SetElement(c, list, idx, &amp;v);</span>
+<span class="lineNum">     268 </span>                :            :         }
+<span class="lineNum">     269 </span>                :<span class="lineNoCov">          0 :         SMJS_SET_RVAL( OBJECT_TO_JSVAL(list) );</span>
+<span class="lineNum">     270 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         SMJS_FREE(c, ifce_name);</span>
+<span class="lineNum">     271 </span>                :            :         return JS_TRUE;
+<a name="272"><span class="lineNum">     272 </span>                :            : }</a>
+<span class="lineNum">     273 </span>                :            : 
+<span class="lineNum">     274 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION_EXT(widget_activate_component, Bool is_deactivate)</span>
+<span class="lineNum">     275 </span>                :            : {
+<span class="lineNum">     276 </span>                :            :         u32 i, count;
+<span class="lineNum">     277 </span>                :            :         char *comp_id;
+<span class="lineNum">     278 </span>                :<span class="lineNoCov">          0 :         SMJS_OBJ</span>
+<span class="lineNum">     279 </span>                :            :         SMJS_ARGS
+<span class="lineNum">     280 </span>                :<span class="lineNoCov">          0 :         GF_WidgetInstance *wid = (GF_WidgetInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     281 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!wid) return JS_FALSE;</span>
+<span class="lineNum">     282 </span>                :            : 
+<span class="lineNum">     283 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!argc || !JSVAL_IS_STRING(argv[0])) return JS_TRUE;</span>
+<span class="lineNum">     284 </span>                :<span class="lineNoCov">          0 :         comp_id = SMJS_CHARS(c, argv[0]);</span>
+<span class="lineNum">     285 </span>                :            : 
+<span class="lineNum">     286 </span>                :<span class="lineNoCov">          0 :         count = gf_list_count(wid-&gt;widget-&gt;main-&gt;components);</span>
+<span class="lineNum">     287 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (i=0; i&lt;count; i++) {</span>
+<span class="lineNum">     288 </span>                :<span class="lineNoCov">          0 :                 GF_WidgetComponent *comp = (GF_WidgetComponent*)gf_list_get(wid-&gt;widget-&gt;main-&gt;components, i);</span>
+<span class="lineNum">     289 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (!comp-&gt;id  || strcmp(comp-&gt;id, comp_id)) continue;</span>
+<span class="lineNum">     290 </span>                :            : 
+<span class="lineNum">     291 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (is_deactivate) {</span>
+<span class="lineNum">     292 </span>                :<span class="lineNoCov">          0 :                         wm_deactivate_component(c, wid, comp, NULL);</span>
+<span class="lineNum">     293 </span>                :            :                 } else {
+<span class="lineNum">     294 </span>                :<span class="lineNoCov">          0 :                         wm_activate_component(c, wid, comp, GF_FALSE);</span>
+<span class="lineNum">     295 </span>                :            :                 }
+<span class="lineNum">     296 </span>                :            :                 break;
+<span class="lineNum">     297 </span>                :            :         }
+<span class="lineNum">     298 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         SMJS_FREE(c, comp_id);</span>
+<span class="lineNum">     299 </span>                :            :         return JS_TRUE;
+<a name="300"><span class="lineNum">     300 </span>                :            : }</a>
+<span class="lineNum">     301 </span>                :            : 
+<span class="lineNum">     302 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION(widget_activate_widget)</span>
+<span class="lineNum">     303 </span>                :            : {
+<span class="lineNum">     304 </span>                :<span class="lineNoCov">          0 :         return widget_activate_component(SMJS_CALL_ARGS, GF_FALSE);</span>
+<a name="305"><span class="lineNum">     305 </span>                :            : }</a>
+<span class="lineNum">     306 </span>                :            : 
+<span class="lineNum">     307 </span>                :<span class="lineNoCov">          0 : static JSBool SMJS_FUNCTION(widget_deactivate_widget)</span>
+<span class="lineNum">     308 </span>                :            : {
+<span class="lineNum">     309 </span>                :<span class="lineNoCov">          0 :         return widget_activate_component(SMJS_CALL_ARGS, GF_TRUE);</span>
+<a name="310"><span class="lineNum">     310 </span>                :            : }</a>
+<span class="lineNum">     311 </span>                :            : 
+<span class="lineNum">     312 </span>                :<span class="lineNoCov">          0 : void widget_on_interface_bind(GF_WidgetInterfaceInstance *ifce, Bool unbind)</span>
+<span class="lineNum">     313 </span>                :            : {
+<span class="lineNum">     314 </span>                :            :         jsval funval, rval, argv[1];
+<span class="lineNum">     315 </span>                :            : 
+<span class="lineNum">     316 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         const char *fun_name = unbind ? &quot;onInterfaceUnbind&quot; : &quot;onInterfaceBind&quot;;</span>
+<span class="lineNum">     317 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!ifce || !ifce-&gt;wid || !ifce-&gt;wid-&gt;scene_context) return;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">     318 </span>                :            : 
+<span class="lineNum">     319 </span>                :            :         /*look for JS Callback &quot;invoke&quot; in the widget manager script*/
+<span class="lineNum">     320 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (JS_LookupProperty(ifce-&gt;wid-&gt;scene_context, ifce-&gt;wid-&gt;scene_obj, fun_name, &amp;funval)!=JS_TRUE)</span>
+<span class="lineNum">     321 </span>                :            :                 return;
+<span class="lineNum">     322 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!JSVAL_IS_OBJECT(funval)) return;</span>
+<span class="lineNum">     323 </span>                :            : 
+<span class="lineNum">     324 </span>                :<span class="lineNoCov">          0 :         widget_interface_js_bind(ifce-&gt;wid-&gt;widget-&gt;wm-&gt;ctx, ifce);</span>
+<span class="lineNum">     325 </span>                :<span class="lineNoCov">          0 :         argv[0] = OBJECT_TO_JSVAL(ifce-&gt;obj);</span>
+<span class="lineNum">     326 </span>                :<span class="lineNoCov">          0 :         JS_CallFunctionValue(ifce-&gt;wid-&gt;widget-&gt;wm-&gt;ctx, ifce-&gt;ifce-&gt;obj, funval, 1, argv, &amp;rval);</span>
+<span class="lineNum">     327 </span>                :            : 
+<a name="328"><span class="lineNum">     328 </span>                :            : }</a>
+<span class="lineNum">     329 </span>                :            : 
+<span class="lineNum">     330 </span>                :<span class="lineNoCov">          0 : SMJS_FUNC_PROP_GET(widget_getProperty)</span>
+<span class="lineNum">     331 </span>                :            : 
+<span class="lineNum">     332 </span>                :            : const char *opt;
+<span class="lineNum">     333 </span>                :            : char *prop_name;
+<span class="lineNum">     334 </span>                :<span class="lineNoCov">          0 : GF_WidgetInstance *wid = (GF_WidgetInstance *)SMJS_GET_PRIVATE(c, obj);</span>
+<span class="lineNum">     335 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : if (!wid) return JS_FALSE;</span>
+<span class="lineNum">     336 </span>                :            : 
+<span class="lineNum">     337 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : if (!SMJS_ID_IS_STRING(id)) return JS_TRUE;</span>
+<span class="lineNum">     338 </span>                :<span class="lineNoCov">          0 : prop_name = SMJS_CHARS_FROM_STRING(c, SMJS_ID_TO_STRING(id));</span>
+<span class="lineNum">     339 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : if (!prop_name) return JS_FALSE;</span>
+<span class="lineNum">     340 </span>                :            : 
+<span class="lineNum">     341 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : if (!strcmp(prop_name, &quot;viewMode&quot;)) {</span>
+<span class="lineNum">     342 </span>                :<span class="lineNoCov">          0 :         *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, &quot;floating&quot;) );</span>
+<span class="lineNum">     343 </span>                :            : }
+<span class="lineNum">     344 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;locale&quot;)) {</span>
+<span class="lineNum">     345 </span>                :<span class="lineNoCov">          0 :         opt = gf_cfg_get_key(wid-&gt;widget-&gt;wm-&gt;term-&gt;user-&gt;config, &quot;Systems&quot;, &quot;Language2CC&quot;);</span>
+<span class="lineNum">     346 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!opt) opt = &quot;und&quot;;</span>
+<span class="lineNum">     347 </span>                :<span class="lineNoCov">          0 :         *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, opt) );</span>
+<span class="lineNum">     348 </span>                :            : }
+<span class="lineNum">     349 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;identifier&quot;)) {</span>
+<span class="lineNum">     350 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wid-&gt;widget-&gt;identifier) *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, wid-&gt;widget-&gt;identifier) );</span>
+<span class="lineNum">     351 </span>                :            : }
+<span class="lineNum">     352 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;authorName&quot;)) {</span>
+<span class="lineNum">     353 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wid-&gt;widget-&gt;authorName) *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, wid-&gt;widget-&gt;authorName) );</span>
+<span class="lineNum">     354 </span>                :            : }
+<span class="lineNum">     355 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;authorEmail&quot;)) {</span>
+<span class="lineNum">     356 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wid-&gt;widget-&gt;authorEmail) *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, wid-&gt;widget-&gt;authorEmail) );</span>
+<span class="lineNum">     357 </span>                :            : }
+<span class="lineNum">     358 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;authorHref&quot;)) {</span>
+<span class="lineNum">     359 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wid-&gt;widget-&gt;authorHref) *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, wid-&gt;widget-&gt;authorHref) );</span>
+<span class="lineNum">     360 </span>                :            : }
+<span class="lineNum">     361 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;name&quot;)) {</span>
+<span class="lineNum">     362 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wid-&gt;widget-&gt;name) *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, wid-&gt;widget-&gt;name) );</span>
+<span class="lineNum">     363 </span>                :            : }
+<span class="lineNum">     364 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;version&quot;)) {</span>
+<span class="lineNum">     365 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wid-&gt;widget-&gt;version) *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, wid-&gt;widget-&gt;version) );</span>
+<span class="lineNum">     366 </span>                :            : }
+<span class="lineNum">     367 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;description&quot;)) {</span>
+<span class="lineNum">     368 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (wid-&gt;widget-&gt;description) *vp = STRING_TO_JSVAL( JS_NewStringCopyZ(c, wid-&gt;widget-&gt;description) );</span>
+<span class="lineNum">     369 </span>                :            : }
+<span class="lineNum">     370 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;width&quot;)) {</span>
+<span class="lineNum">     371 </span>                :<span class="lineNoCov">          0 :         opt = gf_cfg_get_key(wid-&gt;widget-&gt;wm-&gt;term-&gt;user-&gt;config, (const char *) wid-&gt;secname, &quot;width&quot;);</span>
+<span class="lineNum">     372 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         *vp = INT_TO_JSVAL( (opt ? atoi(opt) : 0) );</span>
+<span class="lineNum">     373 </span>                :            : }
+<span class="lineNum">     374 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : else if (!strcmp(prop_name, &quot;height&quot;)) {</span>
+<span class="lineNum">     375 </span>                :<span class="lineNoCov">          0 :         opt = gf_cfg_get_key(wid-&gt;widget-&gt;wm-&gt;term-&gt;user-&gt;config, (const char *) wid-&gt;secname, &quot;height&quot;);</span>
+<span class="lineNum">     376 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         *vp = INT_TO_JSVAL( (opt ? atoi(opt) : 0) );</span>
+<span class="lineNum">     377 </span>                :            : }
+<span class="lineNum">     378 </span>                :            : else if (!strcmp(prop_name, &quot;preferences&quot;)) {
+<span class="lineNum">     379 </span>                :            : }
+<span class="lineNum">     380 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 : SMJS_FREE(c, prop_name);</span>
+<span class="lineNum">     381 </span>                :            : return JS_TRUE;
+<a name="382"><span class="lineNum">     382 </span>                :            : }</a>
+<span class="lineNum">     383 </span>                :            : 
+<span class="lineNum">     384 </span>                :<span class="lineNoCov">          0 : SMJS_FUNC_PROP_SET( widget_setProperty)</span>
+<span class="lineNum">     385 </span>                :            : 
+<span class="lineNum">     386 </span>                :            : /*avoids GCC warning*/
+<span class="lineNum">     387 </span>                :            : if (!obj) obj = NULL;
+<span class="lineNum">     388 </span>                :            : #ifndef GPAC_CONFIG_DARWIN
+<span class="lineNum">     389 </span>                :            : if (!id) id=0;
+<span class="lineNum">     390 </span>                :            : #endif
+<span class="lineNum">     391 </span>                :            : if (!vp) vp=0;
+<span class="lineNum">     392 </span>                :<span class="lineNoCov">          0 : return JS_TRUE;</span>
+<a name="393"><span class="lineNum">     393 </span>                :            : }</a>
+<span class="lineNum">     394 </span>                :            : 
+<span class="lineNum">     395 </span>                :<span class="lineNoCov">          0 : void widget_load(GF_WidgetManager *wm, GF_SceneGraph *scene, JSContext *c, JSObject *global, Bool unload)</span>
+<span class="lineNum">     396 </span>                :            : {
+<span class="lineNum">     397 </span>                :            :         u32 i, count;
+<span class="lineNum">     398 </span>                :            :         GF_WidgetInstance *wi;
+<span class="lineNum">     399 </span>                :            : 
+<span class="lineNum">     400 </span>                :            :         /*Is this scenegraph a widget or not ? To find out, browse all widget instances*/
+<span class="lineNum">     401 </span>                :<span class="lineNoCov">          0 :         i=0;</span>
+<span class="lineNum">     402 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         while ((wi = (GF_WidgetInstance*)gf_list_enum(wm-&gt;widget_instances, &amp;i))) {</span>
+<span class="lineNum">     403 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (!wi-&gt;scene || (wi-&gt;scene != scene)) continue;</span>
+<span class="lineNum">     404 </span>                :            :                 break;
+<span class="lineNum">     405 </span>                :            :         }
+<span class="lineNum">     406 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!wi) return;</span>
+<span class="lineNum">     407 </span>                :            : 
+<span class="lineNum">     408 </span>                :            :         /*OK we found our widget*/
+<span class="lineNum">     409 </span>                :            : 
+<span class="lineNum">     410 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (unload) {</span>
+<span class="lineNum">     411 </span>                :            :                 /*detach all bound interfaces from this script*/
+<span class="lineNum">     412 </span>                :<span class="lineNoCov">          0 :                 count = gf_list_count(wi-&gt;bound_ifces);</span>
+<span class="lineNum">     413 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (i=0; i&lt;count; i++) {</span>
+<span class="lineNum">     414 </span>                :<span class="lineNoCov">          0 :                         GF_WidgetInterfaceInstance *ifce = (GF_WidgetInterfaceInstance*)gf_list_get(wi-&gt;bound_ifces, i);</span>
+<span class="lineNum">     415 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (ifce-&gt;obj) {</span>
+<span class="lineNum">     416 </span>                :<span class="lineNoCov">          0 :                                 SMJS_SET_PRIVATE(c, ifce-&gt;obj, NULL);</span>
+<span class="lineNum">     417 </span>                :<span class="lineNoCov">          0 :                                 gf_js_remove_root(c, &amp;ifce-&gt;obj, GF_JSGC_OBJECT);</span>
+<span class="lineNum">     418 </span>                :<span class="lineNoCov">          0 :                                 ifce-&gt;obj = NULL;</span>
+<span class="lineNum">     419 </span>                :            :                         }
+<span class="lineNum">     420 </span>                :            :                 }
+<span class="lineNum">     421 </span>                :            :                 return;
+<span class="lineNum">     422 </span>                :            :         } else {
+<span class="lineNum">     423 </span>                :            : 
+<span class="lineNum">     424 </span>                :<span class="lineNoCov">          0 :                 JSPropertySpec widgetClassProps[] = {</span>
+<span class="lineNum">     425 </span>                :            :                         SMJS_PROPERTY_SPEC(0, 0, 0, 0, 0)
+<span class="lineNum">     426 </span>                :            :                 };
+<span class="lineNum">     427 </span>                :<span class="lineNoCov">          0 :                 JSFunctionSpec widgetClassFuncs[] = {</span>
+<span class="lineNum">     428 </span>                :            :                         /*W3C*/
+<span class="lineNum">     429 </span>                :            :                         SMJS_FUNCTION_SPEC(&quot;has_feature&quot;, widget_has_feature, 1),
+<span class="lineNum">     430 </span>                :            :                         SMJS_FUNCTION_SPEC(&quot;openURL&quot;, widget_open_url, 1),
+<span class="lineNum">     431 </span>                :            :                         SMJS_FUNCTION_SPEC(&quot;getAttention&quot;, widget_get_attention, 0),
+<span class="lineNum">     432 </span>                :            :                         SMJS_FUNCTION_SPEC(&quot;showNotification&quot;, widget_show_notification, 0),
+<span class="lineNum">     433 </span>                :            :                         /*MPEG*/
+<span class="lineNum">     434 </span>                :            :                         SMJS_FUNCTION_SPEC(&quot;getInterfaceHandlersByType&quot;, widget_get_interfaces, 1),
+<span class="lineNum">     435 </span>                :            :                         SMJS_FUNCTION_SPEC(&quot;activateComponentWidget&quot;, widget_activate_widget, 1),
+<span class="lineNum">     436 </span>                :            :                         SMJS_FUNCTION_SPEC(&quot;deactivateComponentWidget&quot;, widget_deactivate_widget, 1),
+<span class="lineNum">     437 </span>                :            :                         SMJS_FUNCTION_SPEC(0, 0, 0)
+<span class="lineNum">     438 </span>                :            :                 };
+<span class="lineNum">     439 </span>                :            : 
+<span class="lineNum">     440 </span>                :<span class="lineNoCov">          0 :                 GF_JS_InitClass(c, global, 0, &amp;wm-&gt;widgetClass, 0, 0,widgetClassProps, widgetClassFuncs, 0, 0);</span>
+<span class="lineNum">     441 </span>                :            : 
+<span class="lineNum">     442 </span>                :            : 
+<span class="lineNum">     443 </span>                :<span class="lineNoCov">          0 :                 wi-&gt;scene_obj = JS_DefineObject(c, global, &quot;widget&quot;, &amp;wm-&gt;widgetClass._class, 0, 0);</span>
+<span class="lineNum">     444 </span>                :            :                 //JS_AliasProperty(c, global, &quot;widget&quot;, &quot;MPEGWidget&quot;);
+<span class="lineNum">     445 </span>                :<span class="lineNoCov">          0 :                 SMJS_SET_PRIVATE(c, wi-&gt;scene_obj, wi);</span>
+<span class="lineNum">     446 </span>                :            :                 /*and remember the script*/
+<span class="lineNum">     447 </span>                :<span class="lineNoCov">          0 :                 wi-&gt;scene_context = c;</span>
+<span class="lineNum">     448 </span>                :<span class="lineNoCov">          0 :                 wi-&gt;scene_global = global;</span>
+<span class="lineNum">     449 </span>                :            :         }
+<span class="lineNum">     450 </span>                :            : }
+<span class="lineNum">     451 </span>                :            : 
+<span class="lineNum">     452 </span>                :            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

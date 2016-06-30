@@ -1,0 +1,18 @@
+ <test name="laser-enst_canvas" result="OK" date="30/06/2016 11:43:14">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="27952" cpu_percent="100%" cpu_elapsed_time="0:00.02" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -coord-bits 24 -mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/enst_canvas.xml</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="27984" cpu_percent="100%" cpu_elapsed_time="0:00.02" cpu_user_time="0.02" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -coord-bits 24 -saf /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/enst_canvas.xml</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="30272" cpu_percent="35%" cpu_elapsed_time="0:00.11" cpu_user_time="0.02" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -lsr /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/enst_canvas.mp4 -out test1.lsr</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="211008" cpu_percent="192%" cpu_elapsed_time="0:03.25" cpu_user_time="6.15" cpu_kernel_time="0.10" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/laser-enst_canvas-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/enst_canvas.saf -opt Validator:Mode=Disable</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="30720" cpu_percent="33%" cpu_elapsed_time="0:00.12" cpu_user_time="0.04" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -lsr /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/laser/enst_canvas.saf -out test2.lsr</command_line>
+  </stat>
+ </test>

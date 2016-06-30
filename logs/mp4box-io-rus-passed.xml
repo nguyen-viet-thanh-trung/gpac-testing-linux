@@ -1,0 +1,30 @@
+ <test name="mp4box-io-rus" result="OK" date="30/06/2016 11:48:52">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="22416" cpu_percent="100%" cpu_elapsed_time="0:00.01" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -info /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/import/rus.srt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="24592" cpu_percent="83%" cpu_elapsed_time="0:00.01" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/import/rus.srt -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="23808" cpu_percent="31%" cpu_elapsed_time="0:00.05" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -info /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="23440" cpu_percent="38%" cpu_elapsed_time="0:00.04" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -dts /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.2.tmp</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="197072" cpu_percent="189%" cpu_elapsed_time="0:01.98" cpu_user_time="3.68" cpu_kernel_time="0.07" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-8 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4box-io-rus-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4 -opt Validator:Mode=Disable</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="24688" cpu_percent="61%" cpu_elapsed_time="0:00.02" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -hint /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4.hint</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="23600" cpu_percent="31%" cpu_elapsed_time="0:00.05" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -diso /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.1.tmp</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="23776" cpu_percent="32%" cpu_elapsed_time="0:00.05" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -drtp /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4.hint -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4.tmp</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="23936" cpu_percent="36%" cpu_elapsed_time="0:00.05" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -unhint /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus.mp4.hint</command_line>
+  </stat>
+ </test>

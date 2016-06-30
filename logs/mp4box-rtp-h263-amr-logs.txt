@@ -1,0 +1,30 @@
+*** mp4box-rtp-h263-amr logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:49:33 ***
+
+
+*** Subtest "streamer-init": executing "MP4Box -noprog -for-test  -mem-track -rtp -run-for=0 -sdp=/home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/session.sdp  -ifce=127.0.0.1 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4" ***
+Starting streaming /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4 to 127.0.0.1:7000
+[32m[FileStreamer] SDP file generated
+[0m
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -run-for 5 -opt Network:BufferLength=1000 -no-save -ifce 127.0.0.1 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/session.sdp" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+[33m[Thread MediaManager] Couldn't set priority(2) for thread ID 0x53425700
+[0m[33m[Thread MediaManager] Couldn't set priority(2) for thread ID 0x53425700
+[0mTerminal Loaded in 103 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/session.sdp
+Service Connected
+[33m[Thread FFMPEG decoder] Couldn't set priority(2) for thread ID 0x00000000
+[0m[33m[RTP] Timeout for RTCP: no SR recevied after 5000 ms - forcing playback, sync may be broken
+[0mService Disconnected
+Deleting terminal... done (in 92 ms) - ran for 11033 ms
+GPAC cleanup ...
+
+
+*** Subtest "streamer-run": executing "MP4Box -noprog -for-test  -mem-track -rtp -run-for=10 -sdp=/home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/session.sdp  -ifce=127.0.0.1 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4" ***
+Starting streaming /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4 to 127.0.0.1:7000
+[32m[FileStreamer] SDP file generated
+[0m[32m[FileStreamer] RTP session /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4 initialized - time origin set to 1722
+[0m

@@ -1,0 +1,16 @@
+*** mp4client-dash-isobmf-main-multi logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:51:09 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-dash-isobmf-main-multi-dump -size 200x200 http://download.tsi.telecom-paristech.fr/gpac/DASH_CONFORMANCE/TelecomParisTech/mp4-main-multi/mp4-main-multi-mpd-AV-NBS.mpd -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL http://download.tsi.telecom-paristech.fr/gpac/DASH_CONFORMANCE/TelecomParisTech/mp4-main-multi/mp4-main-multi-mpd-AV-NBS.mpd
+Service Connected
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 399 ms) - ran for 4531 ms
+GPAC cleanup ...
+

@@ -1,0 +1,6 @@
+ <test name="mp4client-https-bt" result="OK" date="30/06/2016 11:51:52">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="311040" cpu_percent="190%" cpu_elapsed_time="0:05.56" cpu_user_time="9.71" cpu_kernel_time="0.89" page_faults="0" file_inputs="48" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-https-bt-dump -size 200x200 -guid https://raw.githubusercontent.com/gpac/gpac/master/tests/media/bifs/bifs-2D-background-background2D-image.bt -opt Validator:Mode=Disable</command_line>
+  </stat>
+ </test>

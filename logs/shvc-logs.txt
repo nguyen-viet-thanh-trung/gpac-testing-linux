@@ -1,0 +1,46 @@
+*** shvc logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:53:06 ***
+
+
+*** Subtest "Split": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/scalable/shvc.265:svcmode=split -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4" ***
+[32mHEVC import - frame size 1920 x 800 at 25.000 FPS
+[0m[32mSHVC detected - 57344 x 0 at 25.000 FPS
+[0m[32mHEVC Import results: 503 samples (2013 NALUs) - Slices: 11 I 117 P 876 B - 1004 SEI - 1 IDR
+[0m[32mStream uses forward prediction - stream CTS offset: 4 frames
+[0m[32mOpenGOP detected - adjusting file brand
+[0m Return Value 139 - re-executing without GNU TIME
+[32mHEVC import - frame size 1920 x 800 at 25.000 FPS
+[0m[32mSHVC detected - 57344 x 0 at 25.000 FPS
+[0m[32mHEVC Import results: 503 samples (2013 NALUs) - Slices: 11 I 117 P 876 B - 1004 SEI - 1 IDR
+[0m[32mStream uses forward prediction - stream CTS offset: 4 frames
+[0m[32mOpenGOP detected - adjusting file brand
+[0m
+
+*** Subtest "Merge": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4:svcmode=merge -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-merge.mp4" ***
+[33m[Importer] Unknown input file type for "/home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4"
+[0mError importing /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4:svcmode=merge: Requested URL is not valid or cannot be found
+
+Same Hash for /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc.mp4 and /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-merge.mp4
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4 -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4
+[31m[IsoMedia] : error while opening /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4, error=Requested URL is not valid or cannot be found
+[0m
+
+*** Subtest "dash": executing "MP4Box -noprog -for-test  -mem-track -dash 1000 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-split.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc.mpd" ***
+DASH Setup Error: Requested URL is not valid or cannot be found
+
+
+*** Subtest "dash-playback": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc-dash-playback-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc.mpd -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc.mpd
+[31m[MPD_IN] Error - cannot initialize DASH Client for /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/shvc.mpd: Requested URL is not valid or cannot be found
+[0m

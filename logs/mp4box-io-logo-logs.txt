@@ -1,0 +1,54 @@
+*** mp4box-io-logo logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:48:04 ***
+
+
+*** Subtest "RawMediaInfo": executing "MP4Box -noprog -for-test  -mem-track -info /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/logo.png" ***
+Import probing results for /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/logo.png:
+File has 1 tracks
+	Track 1 type: Video (png )
+
+
+
+*** Subtest "MediaImport": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/logo.png -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.mp4" ***
+[32mPNG import /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/auxiliary_files/logo.png - size 128 x 128
+[0mSaving /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.mp4: 0.500 secs Interleaving
+
+
+*** Subtest "MediaInfo": executing "MP4Box -noprog -for-test  -mem-track -info /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.mp4" ***
+* Movie Info *
+	Timescale 600 - 1 track
+	Computed Duration 00:00:01.000 - Indicated Duration 00:00:01.000
+	Fragmented File: no
+	File suitable for progressive download (moov before mdat)
+	File Brand isom - version 1
+	Created: UNKNOWN DATE	Modified: UNKNOWN DATE
+File has no MPEG4 IOD/OD
+
+Track # 1 Info - TrackID 1 - TimeScale 1000
+Media Duration 00:00:01.000 - Indicated Duration 00:00:01.000
+Media Info: Language "Undetermined (und)" - Type "vide:png " - 1 samples
+Visual Track layout: x=0 y=0 width=128 height=128
+Visual Track - Compressor "JPEG" - Resolution 128 x 128
+	RFC6381 Codec Parameters: png 
+	All samples are sync
+
+
+
+*** Subtest "MediaTime": executing "MP4Box -noprog -for-test  -mem-track -dts /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.2.tmp" ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-8 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4box-io-logo-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.mp4 -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.mp4
+Service Connected
+Dumping done: 200 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 71 ms) - ran for 1811 ms
+GPAC cleanup ...
+
+
+*** Subtest "XMDDump": executing "MP4Box -noprog -for-test  -mem-track -diso /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/logo.1.tmp" ***
+

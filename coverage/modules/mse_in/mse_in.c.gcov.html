@@ -1,0 +1,480 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - modules/mse_in/mse_in.c</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">modules/mse_in</a> - mse_in.c<span style="font-size: 80%;"> (source / <a href="mse_in.c.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntry">146</td>
+            <td class="headerCovTableEntryLo">24.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2016-06-30</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntryLo">27.8 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">137</td>
+            <td class="headerCovTableEntryLo">6.6 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : /*</a>
+<span class="lineNum">       2 </span>                :            :  *          GPAC - Multimedia Framework C SDK
+<span class="lineNum">       3 </span>                :            :  *
+<span class="lineNum">       4 </span>                :            :  *          Authors: Cyril Concolato, Jean Le Feuvre
+<span class="lineNum">       5 </span>                :            :  *          Copyright (c) Telecom ParisTech 2013-
+<span class="lineNum">       6 </span>                :            :  *                  All rights reserved
+<span class="lineNum">       7 </span>                :            :  *
+<span class="lineNum">       8 </span>                :            :  *  This file is part of GPAC / Media Source input module
+<span class="lineNum">       9 </span>                :            :  *
+<span class="lineNum">      10 </span>                :            :  *  GPAC is free software; you can redistribute it and/or modify
+<span class="lineNum">      11 </span>                :            :  *  it under the terms of the GNU Lesser General Public License as published by
+<span class="lineNum">      12 </span>                :            :  *  the Free Software Foundation; either version 2, or (at your option)
+<span class="lineNum">      13 </span>                :            :  *  any later version.
+<span class="lineNum">      14 </span>                :            :  *
+<span class="lineNum">      15 </span>                :            :  *  GPAC is distributed in the hope that it will be useful,
+<span class="lineNum">      16 </span>                :            :  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      17 </span>                :            :  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      18 </span>                :            :  *  GNU Lesser General Public License for more details.
+<span class="lineNum">      19 </span>                :            :  *
+<span class="lineNum">      20 </span>                :            :  *  You should have received a copy of the GNU Lesser General Public
+<span class="lineNum">      21 </span>                :            :  *  License along with this library; see the file COPYING.  If not, write to
+<span class="lineNum">      22 </span>                :            :  *  the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+<span class="lineNum">      23 </span>                :            :  *
+<span class="lineNum">      24 </span>                :            :  */
+<span class="lineNum">      25 </span>                :            : 
+<span class="lineNum">      26 </span>                :            : #include &lt;gpac/modules/service.h&gt;
+<span class="lineNum">      27 </span>                :            : #include &lt;gpac/internal/terminal_dev.h&gt;
+<span class="lineNum">      28 </span>                :            : #include &lt;gpac/html5_mse.h&gt;
+<span class="lineNum">      29 </span>                :            : 
+<span class="lineNum">      30 </span>                :            : #ifndef GPAC_DISABLE_MSE
+<span class="lineNum">      31 </span>                :            : 
+<span class="lineNum">      32 </span>                :            : typedef struct __mse_module
+<span class="lineNum">      33 </span>                :            : {
+<span class="lineNum">      34 </span>                :            :         GF_HTML_MediaSource *mediasource;
+<span class="lineNum">      35 </span>                :            :         GF_InputService *plug;
+<span class="lineNum">      36 </span>                :            : } GF_MSE_In;
+<a name="37"><span class="lineNum">      37 </span>                :            : </a>
+<span class="lineNum">      38 </span>                :            : /* The MSE plugin has no MIME type associated, it cannot handle basic media resources (it needs a blob)*/
+<span class="lineNum">      39 </span>                :<span class="lineCov">          1 : static u32 MSE_RegisterMimeTypes(const GF_InputService *plug)</span>
+<span class="lineNum">      40 </span>                :            : {
+<span class="lineNum">      41 </span>                :<span class="lineCov">          1 :         return 0;</span>
+<span class="lineNum">      42 </span>                :            : }
+<a name="43"><span class="lineNum">      43 </span>                :            : </a>
+<span class="lineNum">      44 </span>                :            : /* Only Blob URL are supported */
+<span class="lineNum">      45 </span>                :<span class="lineCov">         16 : static Bool MSE_CanHandleURL(GF_InputService *plug, const char *url)</span>
+<span class="lineNum">      46 </span>                :            : {
+<span class="lineNum">      47 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         16 :         if (!plug || !url)</span>
+<span class="lineNum">      48 </span>                :            :                 return GF_FALSE;
+<span class="lineNum">      49 </span>        [<span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 16 times"> + </span>]:<span class="lineCov">         16 :         GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received CanHandleURL request from terminal for URL '%s'\n&quot;, url));</span>
+<span class="lineNum">      50 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         16 :         if (!strncmp(url, &quot;blob:&quot;, 5)) {</span>
+<span class="lineNum">      51 </span>                :            :                 return GF_TRUE;
+<span class="lineNum">      52 </span>                :            :         } else {
+<span class="lineNum">      53 </span>                :<span class="lineCov">         16 :                 return GF_FALSE;</span>
+<span class="lineNum">      54 </span>                :            :         }
+<span class="lineNum">      55 </span>                :            : }
+<a name="56"><span class="lineNum">      56 </span>                :            : </a>
+<span class="lineNum">      57 </span>                :            : /* Returns the source buffer associated with the terminal channel */
+<span class="lineNum">      58 </span>                :<span class="lineNoCov">          0 : static GF_HTML_SourceBuffer *MSE_GetSourceBufferForChannel(GF_HTML_MediaSource *mediasource, LPNETCHANNEL channel)</span>
+<span class="lineNum">      59 </span>                :            : {
+<span class="lineNum">      60 </span>                :            :         GF_Channel *ch;
+<span class="lineNum">      61 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!channel || !mediasource) {</span>
+<span class="lineNum">      62 </span>                :            :                 return NULL;
+<span class="lineNum">      63 </span>                :            :         } else {
+<span class="lineNum">      64 </span>                :            :                 u32 i;
+<span class="lineNum">      65 </span>                :            :                 GF_InputService *parser;
+<span class="lineNum">      66 </span>                :            :                 ch = (GF_Channel *) channel;
+<span class="lineNum">      67 </span>                :            :                 assert(ch-&gt;odm &amp;&amp; ch-&gt;odm-&gt;OD);
+<span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :                 parser = (GF_InputService *) ch-&gt;odm-&gt;OD-&gt;service_ifce;</span>
+<span class="lineNum">      69 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (!parser) return NULL;</span>
+<span class="lineNum">      70 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 for (i = 0; i &lt; gf_list_count(mediasource-&gt;sourceBuffers.list); i++) {</span>
+<span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :                         GF_HTML_SourceBuffer *sb = (GF_HTML_SourceBuffer *)gf_list_get(mediasource-&gt;sourceBuffers.list, i);</span>
+<span class="lineNum">      72 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         if (sb &amp;&amp; sb-&gt;parser &amp;&amp; sb-&gt;parser == parser) return sb;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">      73 </span>                :            :                 }
+<span class="lineNum">      74 </span>                :            :                 return NULL;
+<span class="lineNum">      75 </span>                :            :         }
+<span class="lineNum">      76 </span>                :            : }
+<span class="lineNum">      77 </span>                :            : 
+<a name="78"><span class="lineNum">      78 </span>                :            : /* For a given source buffer, returns the media track associated with the terminal channel object</a>
+<span class="lineNum">      79 </span>                :            :    Association is saved during the ConnectChannel operation */
+<span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 : static GF_HTML_Track *MSE_GetTrackForChannel(GF_HTML_SourceBuffer *sb, LPNETCHANNEL channel)</span>
+<span class="lineNum">      81 </span>                :            : {
+<span class="lineNum">      82 </span>                :            :         u32 i;
+<span class="lineNum">      83 </span>                :            :         u32 count;
+<span class="lineNum">      84 </span>                :<span class="lineNoCov">          0 :         count = gf_list_count(sb-&gt;tracks);</span>
+<span class="lineNum">      85 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (i = 0; i &lt; count; i++)</span>
+<span class="lineNum">      86 </span>                :            :         {
+<span class="lineNum">      87 </span>                :<span class="lineNoCov">          0 :                 GF_HTML_Track *track = (GF_HTML_Track *)gf_list_get(sb-&gt;tracks, i);</span>
+<span class="lineNum">      88 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (track-&gt;channel == channel)</span>
+<span class="lineNum">      89 </span>                :            :                 {
+<span class="lineNum">      90 </span>                :            :                         return track;
+<span class="lineNum">      91 </span>                :            :                 }
+<span class="lineNum">      92 </span>                :            :         }
+<span class="lineNum">      93 </span>                :            :         return NULL;
+<span class="lineNum">      94 </span>                :            : }
+<span class="lineNum">      95 </span>                :            : 
+<a name="96"><span class="lineNum">      96 </span>                :            : /* For a given source buffer, returns the media track associated with the given ESID</a>
+<span class="lineNum">      97 </span>                :            :    Association is saved when the initialisation segment has been parsed */
+<span class="lineNum">      98 </span>                :<span class="lineNoCov">          0 : static GF_HTML_Track *gf_mse_get_track_by_esid(GF_HTML_SourceBuffer *sb, u32 ESID)</span>
+<span class="lineNum">      99 </span>                :            : {
+<span class="lineNum">     100 </span>                :            :         GF_HTML_Track *track;
+<a name="101"><span class="lineNum">     101 </span>                :            :         u32 i;</a>
+<span class="lineNum">     102 </span>                :            :         u32 count;
+<span class="lineNum">     103 </span>                :<span class="lineNoCov">          0 :         count = gf_list_count(sb-&gt;tracks);</span>
+<span class="lineNum">     104 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         for (i=0; i&lt;count; i++)</span>
+<span class="lineNum">     105 </span>                :            :         {
+<span class="lineNum">     106 </span>                :<span class="lineNoCov">          0 :                 track = (GF_HTML_Track *)gf_list_get(sb-&gt;tracks, i);</span>
+<span class="lineNum">     107 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (track-&gt;bin_id == ESID)</span>
+<span class="lineNum">     108 </span>                :            :                 {
+<span class="lineNum">     109 </span>                :            :                         return track;
+<span class="lineNum">     110 </span>                :            :                 }
+<span class="lineNum">     111 </span>                :            :         }
+<span class="lineNum">     112 </span>                :            :         return NULL;
+<span class="lineNum">     113 </span>                :            : }
+<span class="lineNum">     114 </span>                :            : 
+<span class="lineNum">     115 </span>                :            : /* We connect the channel only if the sourcebuffer has been created,
+<span class="lineNum">     116 </span>                :            :    and a track with the right ESID has been found in the init segment */
+<span class="lineNum">     117 </span>                :<span class="lineNoCov">          0 : static GF_Err MSE_ConnectChannel(GF_InputService *plug, LPNETCHANNEL channel, const char *url, Bool upstream)</span>
+<span class="lineNum">     118 </span>                :            : {
+<span class="lineNum">     119 </span>                :            :         u32 ESID;
+<span class="lineNum">     120 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     121 </span>                :<span class="lineNoCov">          0 :         GF_HTML_SourceBuffer *sb = MSE_GetSourceBufferForChannel(msein-&gt;mediasource, channel);</span>
+<span class="lineNum">     122 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!plug || !plug-&gt;priv || !sb || !sb-&gt;parser) return GF_SERVICE_ERROR;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">     123 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (strstr(url, &quot;ES_ID&quot;)) {</span>
+<span class="lineNum">     124 </span>                :            :                 GF_HTML_Track *track;
+<span class="lineNum">     125 </span>                :<span class="lineNoCov">          0 :                 sscanf(url, &quot;ES_ID=%u&quot;, &amp;ESID);</span>
+<span class="lineNum">     126 </span>                :<span class="lineNoCov">          0 :                 track = gf_mse_get_track_by_esid(sb, ESID);</span>
+<span class="lineNum">     127 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 if (!track) {</span>
+<span class="lineNum">     128 </span>                :            :                         return GF_BAD_PARAM;
+<span class="lineNum">     129 </span>                :            :                 } else {
+<span class="lineNum">     130 </span>                :<span class="lineNoCov">          0 :                         track-&gt;channel = channel;</span>
+<span class="lineNum">     131 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                         GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received Channel Connection request on Service %p from terminal for URL '%s#%s'\n&quot;, channel, msein-&gt;mediasource-&gt;blobURI, url));</span>
+<span class="lineNum">     132 </span>                :<span class="lineNoCov">          0 :                         return sb-&gt;parser-&gt;ConnectChannel(sb-&gt;parser, channel, url, upstream);</span>
+<span class="lineNum">     133 </span>                :            :                 }
+<span class="lineNum">     134 </span>                :            :         } else {
+<span class="lineNum">     135 </span>                :            :                 return GF_BAD_PARAM;
+<span class="lineNum">     136 </span>                :            :         }
+<a name="137"><span class="lineNum">     137 </span>                :            : }</a>
+<span class="lineNum">     138 </span>                :            : 
+<span class="lineNum">     139 </span>                :<span class="lineNoCov">          0 : static GF_Err MSE_DisconnectChannel(GF_InputService *plug, LPNETCHANNEL channel)</span>
+<span class="lineNum">     140 </span>                :            : {
+<span class="lineNum">     141 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     142 </span>                :            :         GF_HTML_Track *track;
+<span class="lineNum">     143 </span>                :<span class="lineNoCov">          0 :         GF_HTML_SourceBuffer *sb = MSE_GetSourceBufferForChannel(msein-&gt;mediasource, channel);</span>
+<span class="lineNum">     144 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!plug || !plug-&gt;priv || !sb || !sb-&gt;parser) return GF_SERVICE_ERROR;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">     145 </span>                :<span class="lineNoCov">          0 :         track = MSE_GetTrackForChannel(sb, channel);</span>
+<span class="lineNum">     146 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (track) {</span>
+<span class="lineNum">     147 </span>                :<span class="lineNoCov">          0 :                 track-&gt;channel = NULL;</span>
+<span class="lineNum">     148 </span>                :            :         }
+<span class="lineNum">     149 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received Disconnect channel request on Service %p from terminal for channel %p\n&quot;, msein-&gt;mediasource-&gt;service, channel));</span>
+<span class="lineNum">     150 </span>                :<span class="lineNoCov">          0 :         return sb-&gt;parser-&gt;DisconnectChannel(sb-&gt;parser, channel);</span>
+<span class="lineNum">     151 </span>                :            : }
+<span class="lineNum">     152 </span>                :            : 
+<span class="lineNum">     153 </span>                :            : /* Upon service connection, if the URL is a blobURL, we do the following:
+<a name="154"><span class="lineNum">     154 </span>                :            :    - get the associated MediaSource object, mark it as used</a>
+<span class="lineNum">     155 </span>                :            :    - trigger a source event to the media node associated with the service */
+<span class="lineNum">     156 </span>                :<span class="lineNoCov">          0 : static GF_Err MSE_ConnectService(GF_InputService *plug, GF_ClientService *serv, const char *url)</span>
+<span class="lineNum">     157 </span>                :            : {
+<span class="lineNum">     158 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     159 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received Service Connection request on Service %p from terminal for URL '%s'\n&quot;, serv, url));</span>
+<span class="lineNum">     160 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!msein|| !serv || !url) {</span>
+<span class="lineNum">     161 </span>                :            :                 return GF_BAD_PARAM;
+<span class="lineNum">     162 </span>                :            :         } else {
+<span class="lineNum">     163 </span>                :<span class="lineNoCov">          0 :                 GF_HTML_MediaSource     *ms = NULL;</span>
+<span class="lineNum">     164 </span>                :            : 
+<span class="lineNum">     165 </span>                :<span class="lineNoCov">          0 :                 sscanf(url, &quot;blob:%p&quot;, &amp;ms);</span>
+<span class="lineNum">     166 </span>                :<span class="lineNoCov">          0 :                 msein-&gt;mediasource = ms;</span>
+<span class="lineNum">     167 </span>                :<span class="lineNoCov">          0 :                 ms-&gt;reference_count++;</span>
+<span class="lineNum">     168 </span>                :<span class="lineNoCov">          0 :                 ms-&gt;service = serv;</span>
+<span class="lineNum">     169 </span>                :<span class="lineNoCov">          0 :                 gf_mse_mediasource_open(ms, serv-&gt;owner-&gt;mo);</span>
+<span class="lineNum">     170 </span>                :<span class="lineNoCov">          0 :                 return GF_OK;</span>
+<span class="lineNum">     171 </span>                :            :         }
+<span class="lineNum">     172 </span>                :            : }
+<a name="173"><span class="lineNum">     173 </span>                :            : </a>
+<span class="lineNum">     174 </span>                :            : /* There is no service description (no MPEG-4 IOD) for this module, the associated scene will be generated dynamically */
+<span class="lineNum">     175 </span>                :<span class="lineNoCov">          0 : static GF_Descriptor *MSE_GetServiceDesc(GF_InputService *plug, u32 expect_type, const char *sub_url)</span>
+<span class="lineNum">     176 </span>                :            : {
+<span class="lineNum">     177 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     178 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received Service Description request on Service %p from terminal for URL '%s'\n&quot;, msein-&gt;mediasource-&gt;service, sub_url));</span>
+<span class="lineNum">     179 </span>                :<span class="lineNoCov">          0 :         return NULL;</span>
+<span class="lineNum">     180 </span>                :            : }
+<a name="181"><span class="lineNum">     181 </span>                :            : </a>
+<span class="lineNum">     182 </span>                :            : /* Indicate that the media source object is unused anymore */
+<span class="lineNum">     183 </span>                :<span class="lineNoCov">          0 : static GF_Err MSE_CloseService(GF_InputService *plug)</span>
+<span class="lineNum">     184 </span>                :            : {
+<span class="lineNum">     185 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     186 </span>                :            :         assert( msein );
+<span class="lineNum">     187 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received Close Service request on Service %p from terminal for URL '%s'\n&quot;, msein-&gt;mediasource-&gt;service, msein-&gt;mediasource-&gt;blobURI));</span>
+<span class="lineNum">     188 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (msein-&gt;mediasource) {</span>
+<span class="lineNum">     189 </span>                :<span class="lineNoCov">          0 :                 gf_service_disconnect_ack(msein-&gt;mediasource-&gt;service, NULL, GF_OK);</span>
+<span class="lineNum">     190 </span>                :<span class="lineNoCov">          0 :                 gf_mse_mediasource_del(msein-&gt;mediasource, GF_FALSE);</span>
+<span class="lineNum">     191 </span>                :<span class="lineNoCov">          0 :                 msein-&gt;mediasource = NULL;</span>
+<span class="lineNum">     192 </span>                :            :         }
+<span class="lineNum">     193 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<span class="lineNum">     194 </span>                :            : }
+<span class="lineNum">     195 </span>                :            : 
+<a name="196"><span class="lineNum">     196 </span>                :            : /* Forward all the commands received from the the terminal</a>
+<span class="lineNum">     197 </span>                :            :    to the parser associated with the channel on which the command is received */
+<span class="lineNum">     198 </span>                :<span class="lineNoCov">          0 : static GF_Err MSE_ServiceCommand(GF_InputService *plug, GF_NetworkCommand *com)</span>
+<span class="lineNum">     199 </span>                :            : {
+<span class="lineNum">     200 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     201 </span>                :            :         GF_HTML_SourceBuffer *sb = NULL;
+<span class="lineNum">     202 </span>                :            : 
+<span class="lineNum">     203 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!plug || !plug-&gt;priv || !com ) return GF_SERVICE_ERROR;</span>
+<span class="lineNum">     204 </span>                :            : 
+<span class="lineNum">     205 </span>                :            :         /* channel independant commands */
+<span class="lineNum">     206 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         switch (com-&gt;command_type) {</span>
+<span class="lineNum">     207 </span>                :            :         case GF_NET_SERVICE_INFO:
+<span class="lineNum">     208 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received Info command from terminal on Service %p for URL '%s'\n&quot;, msein-&gt;mediasource-&gt;service, msein-&gt;mediasource-&gt;blobURI));</span>
+<span class="lineNum">     209 </span>                :            :                 return GF_NOT_SUPPORTED;
+<span class="lineNum">     210 </span>                :            :         case GF_NET_SERVICE_HAS_AUDIO:
+<span class="lineNum">     211 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received HasAudio command from terminal on Service %p for URL '%s'\n&quot;, msein-&gt;mediasource-&gt;service, msein-&gt;mediasource-&gt;blobURI));</span>
+<span class="lineNum">     212 </span>                :            :                 return GF_OK;
+<span class="lineNum">     213 </span>                :            :         case GF_NET_SERVICE_QUALITY_SWITCH:
+<span class="lineNum">     214 </span>                :            :                 return GF_NOT_SUPPORTED;
+<span class="lineNum">     215 </span>                :            :         case GF_NET_SERVICE_FLUSH_DATA:
+<span class="lineNum">     216 </span>                :            :                 return GF_NOT_SUPPORTED;
+<span class="lineNum">     217 </span>                :            :         default:
+<span class="lineNum">     218 </span>                :            :                 break;
+<span class="lineNum">     219 </span>                :            :         }
+<span class="lineNum">     220 </span>                :            : 
+<span class="lineNum">     221 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!com-&gt;base.on_channel) {</span>
+<span class="lineNum">     222 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received unknown command %d from terminal on Service %p for URL '%s'\n&quot;, com-&gt;command_type, msein-&gt;mediasource-&gt;service, msein-&gt;mediasource-&gt;blobURI));</span>
+<span class="lineNum">     223 </span>                :            :                 return GF_NOT_SUPPORTED;
+<span class="lineNum">     224 </span>                :            :         }
+<span class="lineNum">     225 </span>                :<span class="lineNoCov">          0 :         sb = MSE_GetSourceBufferForChannel(msein-&gt;mediasource, com-&gt;base.on_channel);</span>
+<span class="lineNum">     226 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!sb || !sb-&gt;parser) {</span>
+<span class="lineNum">     227 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] SourceBuffer not ready on Service %p for URL '%s'\n&quot;, msein-&gt;mediasource-&gt;service, msein-&gt;mediasource-&gt;blobURI));</span>
+<span class="lineNum">     228 </span>                :            :                 return GF_NOT_SUPPORTED;
+<span class="lineNum">     229 </span>                :            :         }
+<span class="lineNum">     230 </span>                :            : 
+<span class="lineNum">     231 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :         switch (com-&gt;command_type) {</span>
+<span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
+<span class="lineNum">         </span><span class="branchNoExec" title="Branch 9 was not executed"> # </span><span class="branchNoExec" title="Branch 10 was not executed"> # </span><span class="branchNoExec" title="Branch 11 was not executed"> # </span><span class="branchNoExec" title="Branch 12 was not executed"> # </span><span class="branchNoExec" title="Branch 13 was not executed"> # </span> 
+<span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 14 was not executed"> # </span>]
+<span class="lineNum">     232 </span>                :            :         case GF_NET_CHAN_PLAY:
+<span class="lineNum">     233 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     234 </span>                :            : 
+<span class="lineNum">     235 </span>                :            :         case GF_NET_CHAN_STOP:
+<span class="lineNum">     236 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     237 </span>                :            : 
+<span class="lineNum">     238 </span>                :            :         case GF_NET_CHAN_PAUSE:
+<span class="lineNum">     239 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     240 </span>                :            : 
+<span class="lineNum">     241 </span>                :            :         case GF_NET_CHAN_RESUME:
+<span class="lineNum">     242 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     243 </span>                :            : 
+<span class="lineNum">     244 </span>                :            :         case GF_NET_CHAN_SET_SPEED:
+<span class="lineNum">     245 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     246 </span>                :            : 
+<span class="lineNum">     247 </span>                :            :         case GF_NET_CHAN_CONFIG:
+<span class="lineNum">     248 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     249 </span>                :            : 
+<span class="lineNum">     250 </span>                :            :         case GF_NET_CHAN_DURATION:
+<span class="lineNum">     251 </span>                :            :                 /* Ignore the duration given by the input service and
+<span class="lineNum">     252 </span>                :            :                    Note: the duration of the initial segment will be 0 anyway (in MP4).*/
+<span class="lineNum">     253 </span>                :<span class="lineNoCov">          0 :                 com-&gt;duration.duration = 0;</span>
+<span class="lineNum">     254 </span>                :<span class="lineNoCov">          0 :                 return GF_OK;</span>
+<span class="lineNum">     255 </span>                :            : 
+<span class="lineNum">     256 </span>                :            :         case GF_NET_CHAN_BUFFER:
+<span class="lineNum">     257 </span>                :<span class="lineNoCov">          0 :                 com-&gt;buffer.max = com-&gt;buffer.min = 0;</span>
+<span class="lineNum">     258 </span>                :<span class="lineNoCov">          0 :                 return GF_OK;</span>
+<span class="lineNum">     259 </span>                :            : 
+<span class="lineNum">     260 </span>                :            :         case GF_NET_CHAN_BUFFER_QUERY:
+<span class="lineNum">     261 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     262 </span>                :            : 
+<span class="lineNum">     263 </span>                :            :         case GF_NET_CHAN_GET_DSI:
+<span class="lineNum">     264 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     265 </span>                :            : 
+<span class="lineNum">     266 </span>                :            :         case GF_NET_CHAN_SET_PADDING:
+<span class="lineNum">     267 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     268 </span>                :            : 
+<span class="lineNum">     269 </span>                :            :         case GF_NET_CHAN_SET_PULL:
+<span class="lineNum">     270 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     271 </span>                :            : 
+<span class="lineNum">     272 </span>                :            :         case GF_NET_CHAN_INTERACTIVE:
+<span class="lineNum">     273 </span>                :            :                 /* we are interactive */
+<span class="lineNum">     274 </span>                :            :                 return GF_OK;
+<span class="lineNum">     275 </span>                :            : 
+<span class="lineNum">     276 </span>                :            :         case GF_NET_CHAN_GET_PIXEL_AR:
+<span class="lineNum">     277 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     278 </span>                :            : 
+<span class="lineNum">     279 </span>                :            :         default:
+<span class="lineNum">     280 </span>                :<span class="lineNoCov">          0 :                 return sb-&gt;parser-&gt;ServiceCommand(sb-&gt;parser, com);</span>
+<span class="lineNum">     281 </span>                :            :         }
+<span class="lineNum">     282 </span>                :            : }
+<a name="283"><span class="lineNum">     283 </span>                :            : </a>
+<span class="lineNum">     284 </span>                :            : /* Forward the request for a new packet to the track (ask the parser to parse a new buffer or use already parsed AU) */
+<span class="lineNum">     285 </span>                :<span class="lineNoCov">          0 : static GF_Err MSE_ChannelGetSLP(GF_InputService *plug, LPNETCHANNEL channel, char **out_data_ptr, u32 *out_data_size,</span>
+<span class="lineNum">     286 </span>                :            :                                 GF_SLHeader *out_sl_hdr, Bool *sl_compressed, GF_Err *out_reception_status, Bool *is_new_data)
+<span class="lineNum">     287 </span>                :            : {
+<span class="lineNum">     288 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     289 </span>                :<span class="lineNoCov">          0 :         GF_HTML_SourceBuffer *sb = MSE_GetSourceBufferForChannel(msein-&gt;mediasource, channel);</span>
+<span class="lineNum">     290 </span>                :<span class="lineNoCov">          0 :         GF_HTML_Track *track = MSE_GetTrackForChannel(sb, channel);</span>
+<span class="lineNum">     291 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!plug || !plug-&gt;priv || !sb || !sb-&gt;parser || !track) return GF_SERVICE_ERROR;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">     292 </span>                :<span class="lineNoCov">          0 :         gf_mse_track_buffer_get_next_packet(track, out_data_ptr, out_data_size, out_sl_hdr, sl_compressed, out_reception_status, is_new_data);</span>
+<span class="lineNum">     293 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<span class="lineNum">     294 </span>                :            : }
+<a name="295"><span class="lineNum">     295 </span>                :            : </a>
+<span class="lineNum">     296 </span>                :            : /* Indicate to the track that a packet can be released (and potentially deleted) */
+<span class="lineNum">     297 </span>                :<span class="lineNoCov">          0 : static GF_Err MSE_ChannelReleaseSLP(GF_InputService *plug, LPNETCHANNEL channel)</span>
+<span class="lineNum">     298 </span>                :            : {
+<span class="lineNum">     299 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     300 </span>                :<span class="lineNoCov">          0 :         GF_HTML_SourceBuffer *sb = MSE_GetSourceBufferForChannel(msein-&gt;mediasource, channel);</span>
+<span class="lineNum">     301 </span>                :<span class="lineNoCov">          0 :         GF_HTML_Track *track = MSE_GetTrackForChannel(sb, channel);</span>
+<span class="lineNum">     302 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!plug || !plug-&gt;priv || !sb || !sb-&gt;parser || !track) return GF_SERVICE_ERROR;</span>
+<span class="lineNum">         </span>        [<span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span>]
+<span class="lineNum">     303 </span>                :<span class="lineNoCov">          0 :         gf_mse_track_buffer_release_packet(track);</span>
+<span class="lineNum">     304 </span>                :<span class="lineNoCov">          0 :         return GF_OK;</span>
+<span class="lineNum">     305 </span>                :            : }
+<a name="306"><span class="lineNum">     306 </span>                :            : </a>
+<span class="lineNum">     307 </span>                :            : /* This module can only handle one blobURL at a time */
+<span class="lineNum">     308 </span>                :<span class="lineNoCov">          0 : static Bool MSE_CanHandleURLInService(GF_InputService *plug, const char *url)</span>
+<span class="lineNum">     309 </span>                :            : {
+<span class="lineNum">     310 </span>                :<span class="lineNoCov">          0 :         GF_MSE_In *msein = (GF_MSE_In*) plug-&gt;priv;</span>
+<span class="lineNum">     311 </span>        [<span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span>]:<span class="lineNoCov">          0 :         GF_LOG(GF_LOG_DEBUG, GF_LOG_DASH, (&quot;[MSE_IN] Received CanHandleURLInService request on service %p from terminal for URL '%s'\n&quot;, msein-&gt;mediasource-&gt;service, url));</span>
+<span class="lineNum">     312 </span>[<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>][<span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!plug || !plug-&gt;priv) return GF_FALSE;</span>
+<span class="lineNum">     313 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (!strcmp(url, msein-&gt;mediasource-&gt;blobURI)) {</span>
+<span class="lineNum">     314 </span>                :            :                 return GF_TRUE;
+<span class="lineNum">     315 </span>                :            :         } else {
+<span class="lineNum">     316 </span>                :<span class="lineNoCov">          0 :                 return GF_FALSE;</span>
+<span class="lineNum">     317 </span>                :            :         }
+<span class="lineNum">     318 </span>                :            : }
+<span class="lineNum">     319 </span>                :            : 
+<span class="lineNum">     320 </span>                :            : #endif //GPAC_DISABLE_MSE
+<a name="321"><span class="lineNum">     321 </span>                :            : </a>
+<span class="lineNum">     322 </span>                :            : GPAC_MODULE_EXPORT
+<span class="lineNum">     323 </span>                :<span class="lineCov">         53 : const u32 *QueryInterfaces()</span>
+<span class="lineNum">     324 </span>                :            : {
+<span class="lineNum">     325 </span>                :            :         static u32 si [] = {
+<span class="lineNum">     326 </span>                :            : #ifndef GPAC_DISABLE_MSE
+<span class="lineNum">     327 </span>                :            :                 GF_NET_CLIENT_INTERFACE,
+<span class="lineNum">     328 </span>                :            : #endif
+<span class="lineNum">     329 </span>                :            :                 0
+<span class="lineNum">     330 </span>                :            :         };
+<span class="lineNum">     331 </span>                :<span class="lineCov">         53 :         return si;</span>
+<span class="lineNum">     332 </span>                :            : }
+<a name="333"><span class="lineNum">     333 </span>                :            : </a>
+<span class="lineNum">     334 </span>                :            : GPAC_MODULE_EXPORT
+<span class="lineNum">     335 </span>                :<span class="lineCov">         52 : GF_BaseInterface *LoadInterface(u32 InterfaceType)</span>
+<span class="lineNum">     336 </span>                :            : {
+<span class="lineNum">     337 </span>                :            : #ifdef GPAC_DISABLE_MSE
+<span class="lineNum">     338 </span>                :            :         return NULL;
+<span class="lineNum">     339 </span>                :            : #else
+<span class="lineNum">     340 </span>                :            :         GF_MSE_In *msein;
+<span class="lineNum">     341 </span>                :            :         GF_InputService *plug;
+<span class="lineNum">     342 </span>        [<span class="branchCov" title="Branch 0 was taken 52 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         52 :         if (InterfaceType != GF_NET_CLIENT_INTERFACE) return NULL;</span>
+<span class="lineNum">     343 </span>                :            : 
+<span class="lineNum">     344 </span>        [<span class="branchCov" title="Branch 1 was taken 52 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         52 :         GF_SAFEALLOC(plug, GF_InputService);</span>
+<span class="lineNum">     345 </span>        [<span class="branchCov" title="Branch 0 was taken 52 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         52 :         if (!plug) return NULL;</span>
+<span class="lineNum">     346 </span>                :<span class="lineCov">         52 :         GF_REGISTER_MODULE_INTERFACE(plug, GF_NET_CLIENT_INTERFACE, &quot;GPAC MSE Loader&quot;, &quot;gpac distribution&quot;)</span>
+<span class="lineNum">     347 </span>                :            : 
+<span class="lineNum">     348 </span>        [<span class="branchCov" title="Branch 1 was taken 52 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">         52 :         GF_SAFEALLOC(msein, GF_MSE_In);</span>
+<span class="lineNum">     349 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 52 times"> + </span>]:<span class="lineCov">         52 :         if (!msein) {</span>
+<span class="lineNum">     350 </span>                :<span class="lineNoCov">          0 :                 gf_free(plug);</span>
+<span class="lineNum">     351 </span>                :<span class="lineNoCov">          0 :                 return NULL;</span>
+<span class="lineNum">     352 </span>                :            :         }
+<span class="lineNum">     353 </span>                :            : 
+<span class="lineNum">     354 </span>                :<span class="lineCov">         52 :         plug-&gt;RegisterMimeTypes = MSE_RegisterMimeTypes;</span>
+<span class="lineNum">     355 </span>                :<span class="lineCov">         52 :         plug-&gt;CanHandleURL = MSE_CanHandleURL;</span>
+<span class="lineNum">     356 </span>                :<span class="lineCov">         52 :         plug-&gt;ConnectService = MSE_ConnectService;</span>
+<span class="lineNum">     357 </span>                :<span class="lineCov">         52 :         plug-&gt;CloseService = MSE_CloseService;</span>
+<span class="lineNum">     358 </span>                :<span class="lineCov">         52 :         plug-&gt;GetServiceDescriptor = MSE_GetServiceDesc;</span>
+<span class="lineNum">     359 </span>                :<span class="lineCov">         52 :         plug-&gt;ConnectChannel = MSE_ConnectChannel;</span>
+<span class="lineNum">     360 </span>                :<span class="lineCov">         52 :         plug-&gt;DisconnectChannel = MSE_DisconnectChannel;</span>
+<span class="lineNum">     361 </span>                :<span class="lineCov">         52 :         plug-&gt;ServiceCommand = MSE_ServiceCommand;</span>
+<span class="lineNum">     362 </span>                :<span class="lineCov">         52 :         plug-&gt;CanHandleURLInService = MSE_CanHandleURLInService;</span>
+<span class="lineNum">     363 </span>                :<span class="lineCov">         52 :         plug-&gt;ChannelGetSLP = MSE_ChannelGetSLP;</span>
+<span class="lineNum">     364 </span>                :<span class="lineCov">         52 :         plug-&gt;ChannelReleaseSLP = MSE_ChannelReleaseSLP;</span>
+<span class="lineNum">     365 </span>                :            : 
+<span class="lineNum">     366 </span>                :<span class="lineCov">         52 :         plug-&gt;priv = msein;</span>
+<span class="lineNum">     367 </span>                :<span class="lineCov">         52 :         msein-&gt;plug = plug;</span>
+<span class="lineNum">     368 </span>                :<span class="lineCov">         52 :         return (GF_BaseInterface *)plug;</span>
+<span class="lineNum">     369 </span>                :            : #endif
+<span class="lineNum">     370 </span>                :            : }
+<a name="371"><span class="lineNum">     371 </span>                :            : </a>
+<span class="lineNum">     372 </span>                :            : GPAC_MODULE_EXPORT
+<span class="lineNum">     373 </span>                :<span class="lineCov">         52 : void ShutdownInterface(GF_BaseInterface *bi)</span>
+<span class="lineNum">     374 </span>                :            : {
+<span class="lineNum">     375 </span>                :            : #ifndef GPAC_DISABLE_MSE
+<span class="lineNum">     376 </span>                :            :         GF_MSE_In *msein;
+<span class="lineNum">     377 </span>                :            : 
+<span class="lineNum">     378 </span>        [<span class="branchCov" title="Branch 0 was taken 52 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        104 :         if (bi-&gt;InterfaceType!=GF_NET_CLIENT_INTERFACE) return;</span>
+<span class="lineNum">     379 </span>                :            : 
+<span class="lineNum">     380 </span>                :<span class="lineCov">         52 :         msein = (GF_MSE_In*) ((GF_InputService*)bi)-&gt;priv;</span>
+<span class="lineNum">     381 </span>                :            :         assert(msein);
+<span class="lineNum">     382 </span>                :<span class="lineCov">         52 :         gf_free(msein);</span>
+<span class="lineNum">     383 </span>                :<span class="lineCov">         52 :         gf_free(bi);</span>
+<span class="lineNum">     384 </span>                :            : #endif
+<span class="lineNum">     385 </span>                :            : }
+<span class="lineNum">     386 </span>                :            : 
+<span class="lineNum">     387 </span>                :<span class="lineNoCov">          0 : GPAC_MODULE_STATIC_DECLARATION( mse_in )</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

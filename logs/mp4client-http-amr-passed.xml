@@ -1,0 +1,6 @@
+ <test name="mp4client-http-amr" result="OK" date="30/06/2016 11:52:28">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="260928" cpu_percent="185%" cpu_elapsed_time="0:03.29" cpu_user_time="5.73" cpu_kernel_time="0.38" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-http-amr-dump -size 200x200 -guid http://download.tsi.telecom-paristech.fr/gpac/gpac_test_suite/resources/media/import/bear_audio.amr -opt Validator:Mode=Disable</command_line>
+  </stat>
+ </test>

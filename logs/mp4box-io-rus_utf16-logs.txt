@@ -1,0 +1,47 @@
+*** mp4box-io-rus_utf16 logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:48:52 ***
+
+
+*** Subtest "RawMediaInfo": executing "MP4Box -noprog -for-test  -mem-track -info /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/import/rus_utf16.srt" ***
+Error probing file /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/import/rus_utf16.srt: I/O Error
+
+
+*** Subtest "MediaImport": executing "MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/import/rus_utf16.srt -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4" ***
+Error importing /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/external_media/import/rus_utf16.srt: I/O Error
+
+
+*** Subtest "MediaInfo": executing "MP4Box -noprog -for-test  -mem-track -info /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4" ***
+Error opening file /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4: Requested URL is not valid or cannot be found
+
+
+*** Subtest "MediaTime": executing "MP4Box -noprog -for-test  -mem-track -dts /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.2.tmp" ***
+Error opening file /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4: Requested URL is not valid or cannot be found
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-8 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4box-io-rus_utf16-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4 -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4
+[31m[IsoMedia] : error while opening /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4, error=Requested URL is not valid or cannot be found
+[0m
+
+*** Subtest "RTPHint": executing "MP4Box -noprog -for-test  -mem-track -hint /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4.hint" ***
+Error opening file /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4: Requested URL is not valid or cannot be found
+
+
+*** Subtest "XMDDump": executing "MP4Box -noprog -for-test  -mem-track -diso /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.1.tmp" ***
+Error opening file /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4: Requested URL is not valid or cannot be found
+
+
+*** Subtest "RTPDump": executing "MP4Box -noprog -for-test  -mem-track -drtp /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4.hint -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4.tmp" ***
+Error creating file /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4.hint: Requested URL is not valid or cannot be found
+
+
+*** Subtest "RTPUnhint": executing "MP4Box -noprog -for-test  -mem-track -unhint /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4.hint" ***
+Saving to /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/rus_utf16.mp4.hint: 0.500 secs Interleaving
+Error: Invalid IsoMedia File
+
+	Error: Invalid IsoMedia File
+

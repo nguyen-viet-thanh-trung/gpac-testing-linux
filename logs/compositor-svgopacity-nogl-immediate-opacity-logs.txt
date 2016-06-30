@@ -1,0 +1,25 @@
+*** compositor-svgopacity-nogl-immediate-opacity logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:42:40 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/compositor-svgopacity-nogl-immediate-opacity-play-dump -size 200x200 -opt -no-save /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/svg/opacity.svg -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+Badly formatted option -no-save - expected Section:Name=Value
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/svg/opacity.svg
+Service Connected
+[33m[FreeType] Font 'Times' (Times) not found
+[0m[33m[FreeType] Font 'Times' (Times) not found
+[0m[33m[FreeType] Font 'Times' (Times) not found
+[0m[33m[FreeType] Font 'Times' (Times) not found
+[0m[33m[FreeType] Font 'Times' (Times) not found
+[0m[33m[FreeType] Font 'Times' (Times) not found
+[0m[33m[FreeType] Font 'Times' (Times) not found
+[0m[33m[FreeType] Font 'Times' (Times) not found
+[0mDumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 73 ms) - ran for 2125 ms
+GPAC cleanup ...
+

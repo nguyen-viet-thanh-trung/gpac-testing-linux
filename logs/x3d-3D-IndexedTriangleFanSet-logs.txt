@@ -1,0 +1,16 @@
+*** x3d-3D-IndexedTriangleFanSet logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:54:48 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/x3d-3D-IndexedTriangleFanSet-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/x3d/x3d-3D-IndexedTriangleFanSet.x3dv -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 4 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/x3d/x3d-3D-IndexedTriangleFanSet.x3dv
+Service Connected
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 70 ms) - ran for 2571 ms
+GPAC cleanup ...
+

@@ -1,0 +1,6 @@
+ <test name="mp4client-http-mp4-commands" result="OK" date="30/06/2016 11:52:37">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="260448" cpu_percent="186%" cpu_elapsed_time="0:03.49" cpu_user_time="6.17" cpu_kernel_time="0.33" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-http-mp4-commands-dump -size 200x200 -guid http://download.tsi.telecom-paristech.fr/gpac/gpac_test_suite/regression_tests/bifs/bifs-command-animated-osmo4logo.mp4 -opt Validator:Mode=Disable</command_line>
+  </stat>
+ </test>

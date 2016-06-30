@@ -1,0 +1,19 @@
+*** compositor-glonly-bifs-misc-hc-proto-offscreengroup logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:42:23 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/compositor-glonly-bifs-misc-hc-proto-offscreengroup-play-dump -size 200x200 -opt -no-save /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-misc-hc-proto-offscreengroup.bt -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+Badly formatted option -no-save - expected Section:Name=Value
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-misc-hc-proto-offscreengroup.bt
+Service Connected
+[m4v @ 0x36b1e40] max_analyze_duration reached
+[m4v @ 0x36b1e40] Estimating duration from bitrate, this may be inaccurate
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 62 ms) - ran for 2579 ms
+GPAC cleanup ...
+

@@ -1,0 +1,19 @@
+*** compositor-nogl-defer-debug-bifs-interpolation-positioninterpolator2D-position logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:42:33 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/compositor-nogl-defer-debug-bifs-interpolation-positioninterpolator2D-position-play-dump -size 200x200 -opt -no-save /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-interpolation-positioninterpolator2D-position.bt -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+Badly formatted option -no-save - expected Section:Name=Value
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-interpolation-positioninterpolator2D-position.bt
+Service Connected
+[m4v @ 0x1fdd160] max_analyze_duration reached
+[m4v @ 0x1fdd160] Estimating duration from bitrate, this may be inaccurate
+Dumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 63 ms) - ran for 2465 ms
+GPAC cleanup ...
+

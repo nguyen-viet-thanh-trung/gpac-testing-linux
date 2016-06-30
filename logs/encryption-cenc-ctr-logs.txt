@@ -1,0 +1,26 @@
+*** encryption-cenc-ctr logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:42:50 ***
+
+
+*** Subtest "Encrypt": executing "MP4Box -noprog -for-test  -mem-track -crypt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/encryption/drm_ctr.xml -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cenc-ctr-crypted.mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/source_media.mp4" ***
+Saving to /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cenc-ctr-crypted.mp4: 0.500 secs Interleaving
+
+
+*** Subtest "Decrypt": executing "MP4Box -noprog -for-test  -mem-track -decrypt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/encryption/drm_ctr.xml -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cenc-ctr-decrypted.mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/source_media.mp4" ***
+Saving to /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cenc-ctr-decrypted.mp4: 0.500 secs Interleaving
+
+Same Hash for /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/source_media.mp4 and /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cenc-ctr-decrypted.mp4
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/encryption-cenc-ctr-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cenc-ctr-crypted.mp4 -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 10 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/cenc-ctr-crypted.mp4
+Service Connected
+[33m[CENC/ISMA] System ID 9A04F07998404286AB92E65BE0885F95 not supported
+[0mDumping done: 250 frames at 25 FPS
+Service Disconnected
+Deleting terminal... done (in 148 ms) - ran for 6726 ms
+GPAC cleanup ...
+

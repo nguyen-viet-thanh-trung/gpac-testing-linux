@@ -1,0 +1,33 @@
+ <test name="bifs-2D-positioning-form-align-center" result="OK" date="30/06/2016 11:33:34">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="26352" cpu_percent="100%" cpu_elapsed_time="0:00.01" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25104" cpu_percent="100%" cpu_elapsed_time="0:00.01" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -xmt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25648" cpu_percent="25%" cpu_elapsed_time="0:00.07" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -bt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.mp4 -out test2.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25728" cpu_percent="20%" cpu_elapsed_time="0:00.08" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -xmt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.mp4 -out test.xmt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25456" cpu_percent="20%" cpu_elapsed_time="0:00.08" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -stat /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.mp4 -std</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25456" cpu_percent="23%" cpu_elapsed_time="0:00.07" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -stats /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.mp4 -std</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25440" cpu_percent="54%" cpu_elapsed_time="0:00.03" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -statx /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.mp4 -std</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="198240" cpu_percent="186%" cpu_elapsed_time="0:02.19" cpu_user_time="3.98" cpu_kernel_time="0.10" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/bifs-2D-positioning-form-align-center-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.mp4 -opt Validator:Mode=Disable</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25216" cpu_percent="29%" cpu_elapsed_time="0:00.06" cpu_user_time="0.00" cpu_kernel_time="0.01" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -bt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.xmt -out test1.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="26512" cpu_percent="22%" cpu_elapsed_time="0:00.08" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.xmt -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-2D-positioning-form-align-center.mp4.tmp</command_line>
+  </stat>
+ </test>

@@ -1,0 +1,12 @@
+*** mp4client-lang-fr logs (GPAC version 0.6.2-DEV-revUNKNOWN-HEAD ) - test date 30/06/2016 11:50:33 ***
+
+
+*** Subtest "play": executing "MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/mp4client-lang-fr-dump -size 200x200 -opt Systems:Language3CC=fre -opt Systems:Language2CC=fr -no-save /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/bifs-od-language-code.mp4 -opt Validator:Mode=Disable" ***
+Using config file in /home/travis/.gpac directory
+System info: 7481 MB RAM - 2 cores
+Modules Found : 37 
+Loading GPAC Terminal
+Terminal Loaded in 3 ms
+Opening URL /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/bifs-od-language-code.mp4
+[31m[IsoMedia] : error while opening /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/bifs-od-language-code.mp4, error=Requested URL is not valid or cannot be found
+[0m

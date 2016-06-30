@@ -1,0 +1,12 @@
+ <test name="vtt-overlapping-middle" result="OK" date="30/06/2016 11:54:04">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="24448" cpu_percent="100%" cpu_elapsed_time="0:00.01" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -add /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/webvtt/overlapping-middle.vtt -new /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="23760" cpu_percent="90%" cpu_elapsed_time="0:00.01" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -info 1 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="213568" cpu_percent="193%" cpu_elapsed_time="0:02.11" cpu_user_time="4.02" cpu_kernel_time="0.06" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/vtt-overlapping-middle-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/test.mp4 -opt Validator:Mode=Disable</command_line>
+  </stat>
+ </test>

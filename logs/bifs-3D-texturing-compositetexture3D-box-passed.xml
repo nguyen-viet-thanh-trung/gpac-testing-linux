@@ -1,0 +1,33 @@
+ <test name="bifs-3D-texturing-compositetexture3D-box" result="OK" date="30/06/2016 11:38:13">
+
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="26768" cpu_percent="100%" cpu_elapsed_time="0:00.01" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25200" cpu_percent="92%" cpu_elapsed_time="0:00.01" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -xmt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="26016" cpu_percent="32%" cpu_elapsed_time="0:00.05" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -bt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.mp4 -out test2.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="26080" cpu_percent="33%" cpu_elapsed_time="0:00.05" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -xmt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.mp4 -out test.xmt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25616" cpu_percent="39%" cpu_elapsed_time="0:00.04" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -stat /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.mp4 -std</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25600" cpu_percent="21%" cpu_elapsed_time="0:00.08" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -stats /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.mp4 -std</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25648" cpu_percent="20%" cpu_elapsed_time="0:00.08" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -statx /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.mp4 -std</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="321632" cpu_percent="185%" cpu_elapsed_time="0:08.47" cpu_user_time="15.65" cpu_kernel_time="0.10" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Client -noprog -strict-error  -mem-track -avi 0-10 -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/results/temp/bifs-3D-texturing-compositetexture3D-box-play-dump -size 200x200 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.mp4 -opt Validator:Mode=Disable</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="25312" cpu_percent="21%" cpu_elapsed_time="0:00.07" cpu_user_time="0.01" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -bt /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.xmt -out test1.bt</command_line>
+  </stat>
+  <stat subtest="" execution_status="OK" return_status="0" mem_total_avg="0" mem_resident_avg="0" mem_resident_max="26912" cpu_percent="21%" cpu_elapsed_time="0:00.08" cpu_user_time="0.00" cpu_kernel_time="0.00" page_faults="0" file_inputs="0" socket_msg_rec="0" socket_msg_sent="0" return_value="0">
+   <command_line>MP4Box -noprog -for-test  -mem-track -mp4 /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.xmt -out /home/travis/build/nguyen-viet-thanh-trung/gpac/tests/media/bifs/bifs-3D-texturing-compositetexture3D-box.mp4.tmp</command_line>
+  </stat>
+ </test>
